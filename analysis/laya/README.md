@@ -1,10 +1,10 @@
 # OSAC-5641 Laya routing evaluation
 
-This is a retrospective replay of failed OSAC E2E GitHub Actions jobs. It does
-not run in the diagnostic workflow and it does not skip Vertex. The inputs in
-`cases.json` are selected, source-attributed excerpts from failed job logs,
-JUnit reports, and diagnostic artifacts. Raw CI logs and artifact archives are
-not stored in this repository.
+This is a retrospective replay of failed OSAC E2E GitHub Actions jobs. The
+shadow helper is also wired into the diagnostic workflow; it never skips
+Vertex. The inputs in `cases.json` are bounded, redacted excerpts produced by
+that same helper from failed job logs, JUnit reports, and diagnostic artifacts.
+Raw CI logs and artifact archives are not stored in this repository.
 
 ## Corpus and labels
 
@@ -19,9 +19,11 @@ not stored in this repository.
   repeated signatures together. A timeout with no supported upstream cause is
   labeled `unknown`. Several E2E timeouts still need product investigation to
   determine the deeper cause. These labels were reviewed for this experiment;
-  they are not the human approval required for a production bypass.
-- 54 runs have diagnostic artifacts. Every run has a failed-job log. Artifact
-  absence and unresolved root causes are distinct measures.
+  they are not the independent human approval required for a production bypass.
+- 54 runs have diagnostic artifacts. Every run has a failed-job log. The shared
+  extractor found direct supporting evidence in 58 runs; the remaining generic
+  install timeout has no verified upstream cause. Artifact absence and
+  unresolved root causes are distinct measures.
 
 Selection was deliberately diverse, not random. Accuracy on these 59 jobs
 cannot estimate production prevalence or future error rates. The holdout
@@ -30,7 +32,20 @@ root signature in development.
 
 ## Repeat the Laya calls
 
-The evaluator uses the pinned English checkpoint and batches of at most five.
+Given local raw downloads with `<PR>/job.log` or
+`new_candidates/<run_id>/job.log` plus optional `artifact.zip`, recreate the
+sanitized states with the production extractor:
+
+```bash
+python3 analysis/laya/reextract.py --raw-root /path/to/downloads --output /tmp/cases.json
+```
+
+Use `--cases /tmp/cases.json` on the evaluator to score that replay. The
+committed `cases.json` is the output of that step for this experiment. The
+extractor is `.github/scripts/laya-shadow.py`; the exact question and model
+are pinned in `schema.json`.
+
+The evaluator requests the `english` model and batches of at most five.
 It sends the exact four-field state in `cases.json`; `short` drops pod/JUnit
 evidence, `compact` removes source prefixes and clips evidence, and `stage`
 uses the failed step to select a smaller question. The `stage` arm routes E2E
@@ -58,7 +73,8 @@ Laya, and a top probability of at least 0.90. Missing evidence, conflicting
 sources, a generic timeout, or an unknown route means abstain and call Vertex.
 Any wrong-class bypass in a root-separated audit immediately disables bypass.
 
-The project has not provided human approval for a known signature and there is
-no live shadow capture yet. The enabled bypass remains **off** with a projected
-Vertex-call reduction of **zero**. `report.md` records candidate opportunities
-and the work still needed for the Jira acceptance criteria.
+The project has not provided independent human approval for a known signature,
+and the workflow change has not yet produced live capture after merge. The
+bypass remains **off** with a projected Vertex-call reduction of **zero**.
+`report.md` records candidate opportunities and the remaining Jira acceptance
+criteria.

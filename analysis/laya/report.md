@@ -1,121 +1,70 @@
 # OSAC-5641: Laya routing evaluation
 
-Observed 2026-09-28 against the pinned `english` checkpoint of the internal
-Laya server. This is a retrospective replay, not live shadow capture. The
-exact questions, selected evidence states, root groups, and labels are in
-[`evaluate.py`](evaluate.py) and [`cases.json`](cases.json).
+Observed 2026-09-28 against the `english` model of the internal Laya server. This is a replay of historical failed GitHub Actions runs, followed by a local invocation of the production shadow helper on the held-out cases. It is **not** a measurement from a merged workflow. The exact request schema is pinned in [`schema.json`](schema.json); the sanitized states, labels, root groups, predictions, and timings are committed beside this report. Raw logs and ZIPs remain outside the repository.
 
-## What was evaluated
+## Corpus and extraction
 
-The corpus contains 59 distinct failed E2E workflow runs on 59 PRs. The
-original 25 formed the starting development set; 34 runs from other PRs added
-build, install, authorization, and test failures. After grouping the repeated
-AAP, fork approval, missing metering, and TypeScript failures, 37 runs remained
-in development and 22 were held out. None of the 29 observed root groups
-crosses the split. The holdout has no AAP policy or CI authorization root.
-Selection was purposeful rather than random, so these fractions do not predict
-production prevalence.
+There are 59 failed runs on 59 PRs: 37 development, 22 root-separated holdout, 29 observed root groups. All 20 AAP instance-group failures share one root group in development. The holdout has no AAP or CI-authorization root, so their success in development cannot validate a bypass. Selection added underrepresented build, install, test, and authorization failures deliberately; these proportions cannot estimate production prevalence.
 
-The same four fields (`failed_step`, `job_error`, `pod_error`, `traceback`) and
-the same source precedence were used for both splits. The excerpts were
-reviewed against the failed step, job log, and available artifacts. In
-particular, a later successful AAP retry was not labeled as a cause, and
-artifact-gather errors after a failed fork gate were not labeled as the cause.
-The extraction was prepared for this replay and is not yet the production
-extractor from OSAC-5639.
+The same `.github/scripts/laya-shadow.py` extractor produced the four bounded fields (`failed_step`, `job_error`, `pod_error`, `traceback`) for **all 59** cases. `reextract.py` replayed the downloaded job logs and selected artifact ZIP members; no raw archive was committed. All 59 job logs were present, five artifact ZIPs were unavailable, and 58/59 cases had direct supporting evidence. [PR #1233](https://github.com/osac-project/osac/actions/runs/36177191564) has only a generic install timeout and no verified upstream cause; it is correctly labeled `unknown`. Labels reflect inspection of the failed step, log, and artifact, but **they have not received the independent human sign-off required before a production bypass**. Several E2E timeout routes identify the failed operation without establishing a deeper product cause.
 
-## Development comparison and held-out result
+## Prompt comparison
 
 | Route | Development | Holdout | Laya calls on holdout |
 |---|---:|---:|---:|
-| Global nine-choice question, failed step and job error only | 7/37 | not run | — |
-| Global nine-choice question, four source fields | 7/37 | 7/22 | 22 |
-| Global nine-choice question, compact source fields | 6/37 | not run | — |
-| Failed-step route, four-choice Laya question within build/install | **32/37** | **17/22** | **11** |
+| Global nine-choice, failed step and job error | 7/37 | not run | — |
+| Global nine-choice, four fields | 10/37 | 6/22 | 22 |
+| Global nine-choice, compact fields | 7/37 | not run | — |
+| Failed-step route, four-choice Laya question for build/install | **33/37** | **17/22** | **11** |
 
-The short and compact inputs did not improve the global question. The
-stage-constrained route improved the development AAP result to 20/20, but its
-top choice probabilities were only 0.319–0.351. All 20 share the same AAP
-instance-group policy rejection, so they are not 20 independent causes.
+The selected stage route uses the failed step directly for E2E and fork authorization; these decisions have no Laya score. On the 11 held-out build/install cases that actually called Laya, **6/11** routes were correct. Thus the 17/22 combined number measures an extractor and routing policy, not Laya's independent diagnostic ability. Development AAP routing was 20/20 but all 20 are duplicates of one root and their Laya top probabilities are far below 0.90.
 
-The held-out 17/22 includes **11/11 E2E cases routed directly from the failed
-step**. On the 11 held-out build/install cases that called Laya, it was
-**6/11**. This is useful for coarse triage, not for a diagnostic bypass.
+## Held-out confusion matrix for the selected route
 
-## Held-out confusion matrix
+Rows are reviewed labels. `unknown` is an abstention. The 11 E2E cases in the E2E column were routed by the failed step.
 
-Rows are reviewed routes and columns are predictions from the selected
-stage-constrained route. `unknown` is an abstention.
-
-| Actual \ Predicted | AAP | Dependency | Compile | Source | Deploy | CI | App startup | E2E | Unknown |
+| Actual \\ Predicted | AAP | Dependency | Compile | Source | Deploy | CI | App startup | E2E | Unknown |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | AAP policy | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| Build dependency | 0 | 2 | 2 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Build dependency | 0 | 3 | 1 | 0 | 0 | 0 | 0 | 0 | 0 |
 | Build compile | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 |
 | Source checkout | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 2 |
-| Deployment config | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 |
+| Deployment config | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 |
 | CI environment | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| App startup | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 |
+| App startup | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 |
 | E2E / app behavior | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 11 | 0 |
 | Unknown | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 |
 
 | Class | True positives | False positives | False negatives | Abstentions on that class |
 |---|---:|---:|---:|---:|
 | AAP policy | 0 | 0 | 0 | 0 |
-| Build dependency | 2 | 0 | 2 | 0 |
-| Build compile | 1 | 2 | 0 | 0 |
+| Build dependency | 3 | 0 | 1 | 0 |
+| Build compile | 1 | 1 | 0 | 0 |
 | Source checkout | 1 | 0 | 2 | 2 |
-| Deployment config | 0 | 0 | 1 | 1 |
+| Deployment config | 0 | 1 | 1 | 0 |
 | CI environment | 0 | 0 | 0 | 0 |
-| App startup | 1 | 0 | 0 | 0 |
+| App startup | 0 | 1 | 1 | 0 |
 | E2E / app behavior | 11 | 0 | 0 | 0 |
-| Unknown | 1 | 3 | 0 | 1 |
+| Unknown | 1 | 2 | 0 | 1 |
 
-The wrong-class predictions are:
+Wrong routes are [PR #1126](https://github.com/osac-project/osac/actions/runs/36305767053), where a package export failure was called compile at 0.380; [PR #1093](https://github.com/osac-project/osac/actions/runs/35757502813) and [PR #836](https://github.com/osac-project/osac/actions/runs/35602675588), where missing UI build context was returned as unknown at 0.376 and 0.370; [PR #1166](https://github.com/osac-project/osac/actions/runs/36188200390), where a duplicate migration that blocked gRPC startup was called deployment config at 0.293; and [PR #1240](https://github.com/osac-project/osac/actions/runs/36208878598), where an empty token endpoint was called app startup at 0.279. These are actionable errors even when a probability is low. The global question was worse at 6/22.
 
-- [PR #1269](https://github.com/osac-project/osac/actions/runs/36361314336): Go dependency declares a different module path; Laya chose `build_compile` at 0.409.
-- [PR #1126](https://github.com/osac-project/osac/actions/runs/36305767053): the installed `@novnc/novnc` package does not export the requested path; Laya chose `build_compile` at 0.417.
-- [PR #1093](https://github.com/osac-project/osac/actions/runs/35757502813) and [PR #836](https://github.com/osac-project/osac/actions/runs/35602675588): the `osac-ui` build context directory is absent; Laya abstained at 0.376 and 0.370.
-- [PR #1240](https://github.com/osac-project/osac/actions/runs/36208878598): the controller cannot obtain a token because its endpoint is empty; Laya abstained at 0.361.
+## Runtime and candidate savings
 
-The correct abstention is [PR #1233](https://github.com/osac-project/osac/actions/runs/36177191564): the operator install timed out, but the available excerpt did not show a supported upstream cause. The duplicate migration in [PR #1166](https://github.com/osac-project/osac/actions/runs/36188200390) was correctly routed to app startup at 0.633; its UI crashes and Helm timeout were downstream.
+The 11 sequential held-out `/predict` calls made through the production helper took median **0.538 s**, nearest-rank p95 **0.722 s**, maximum **0.722 s**. Three `/predict/batch` requests for the held-out stage route took median **1.82 s**, maximum **2.50 s**. These are small local replay samples, not production latency measurements. Laya failure, timeout, malformed response, or missing evidence leaves the Vertex path unchanged. The workflow writes the route, model, score, runner-up, elapsed time, token count, and evidence references into the existing structured diagnosis JSON; it does not alter the comment or status.
 
-## Evidence, latency, and bypass potential
+Thirty of 59 runs repeat one of seven observed root groups after that group's first occurrence. **30/59 (51%)** is only an upper bound on possible duplicate suppression under perfect signature detection. No signature is approved or enabled, and the shadow code never bypasses Vertex: observed and projected Vertex-call reduction is **0%**. No held-out Laya subtype prediction reached the candidate 0.90 threshold.
 
-- All 59 runs had a failed-job log. Five had no diagnostic artifact: four failed at fork authorization and one at Git-ref fetch, before OSAC installation. The failed step supplied direct evidence in those five. The upstream cause for #1233 remains unverified; several E2E timeout labels identify the failing operation but not the deeper product cause.
-- On the 11 held-out requests that used Laya, single-request `/predict` latency was median **0.572 s**, nearest-rank p95 **0.845 s**, maximum **0.845 s**. Three five-or-fewer-item `/predict/batch` requests had median **1.67 s**, maximum **3.00 s**. These are small, sequential samples, not a production latency SLO.
-- Thirty of 59 runs were repeats after the first occurrence of one of seven observed root groups. That is an upper bound of **30/59 (51%)** for root-level duplicate suppression if every grouping were confirmed and current-run evidence matched. It is not an estimate of safe Vertex-call savings. The largest group is 20 AAP rejections; the holdout has no independent AAP root to validate a bypass.
-- An earlier global prompt gave a wrong Kubernetes route at 0.864 for a duplicate-migration case. The selected route's two wrong compile predictions were 0.409–0.417. Score alone has no demonstrated safe cutoff. No held-out Laya subtype prediction reached 0.90. A threshold of 0.90 plus direct signature agreement fires on **zero** held-out cases, including zero wrong-class cases. With bypass disabled, projected Vertex reduction is **0%**.
+## Conservative gate and decision
 
-## Bypass decision and remaining acceptance work
+Keep the bypass disabled. A future templated response may be considered only when an owner has approved its exact signature and response, the *current* run contains direct evidence in a named source, the step and source agree with the candidate route, no later retry succeeded, and Laya agrees with a top probability at least 0.90. Generic timeouts, missing evidence, conflicting sources, unknown predictions, service failures, and below-threshold probabilities abstain and go to Vertex. Any wrong-class bypass in a root-separated audit disables bypass immediately; so does loss of required evidence in live capture. The threshold is a conservative proposal, **not** a calibration result.
 
-Keep Laya in shadow for build/install subtype experiments. Use the failed CI
-step directly for coarse E2E/authorization routing. Keep Vertex for diagnosis
-and for every ambiguous or conflicting case. A templated bypass can be proposed
-only for a human-confirmed exact signature, with direct evidence from the
-current run in a named log or artifact and no later successful retry. Laya must
-agree with that route at a calibrated threshold; the current conservative
-candidate is 0.90. Generic timeouts, missing evidence, conflicting sources,
-unknown predictions, and below-threshold scores abstain. Any wrong-class
-bypass in a root-separated audit, or loss of required evidence in live shadow
-capture, turns bypass off immediately. Review the template and signature with
-the owning team before enabling it.
-
-The exact candidates for that review are:
-
-| Candidate template | Required current-run source and exact signal | Evaluation status |
+| Candidate | Required direct signal | Current evidence |
 |---|---|---|
-| Fork approval needed | Failed `Authorize fork PR` step, with executed `job.log` lines `##[error]Fork PR blocked:` and `/ok-to-test`; ignore later artifact-gather errors | 4 development runs, no independent holdout root; no human approval |
-| AAP instance-group policy rejection | Failed `Install OSAC` step and `pod-osac-aap-bootstrap-*.log` line containing `Unable to create instance_group`, `pod_spec_override`, and `Mounting Kubernetes secrets ... not allowed`; exclude resolved retries | 20 development runs of one root; Laya scores 0.319–0.351; no holdout root or human approval |
-| Duplicate migration blocks gRPC startup | `pod-fulfillment-grpc-server*.log` line containing `failed to init driver` and `duplicate migration file:` with the filename; verify gRPC pod failed to start | Two different migration files across splits; held-out Laya score 0.633; no human approval |
+| Fork approval | Failed `Authorize fork PR` step plus `job.log` lines `##[error]Fork PR blocked:` and `/ok-to-test`; ignore later artifact-gather errors | Four development cases, no independent holdout or approved template |
+| AAP instance-group policy | Failed `Install OSAC` step plus AAP bootstrap pod line with `Unable to create instance_group`, `pod_spec_override`, and secret mounting forbidden; exclude resolved retries | 20 repeated development cases of one root, low Laya scores, no independent holdout or approval |
+| Duplicate migration | Failed install plus gRPC pod line containing `duplicate migration file:`; verify the current pod failed to start | Two filenames across splits; the held-out case was misrouted, no approval |
 
-These are **review candidates**, not enabled rules. Build dependency errors and
-E2E timeouts do not yet have a sufficiently specific, approved response.
+## Acceptance status
 
-This work satisfies the retrospective confusion/error review and documents a
-candidate gate. **OSAC-5641 is not complete**: OSAC-5638 still needs a
-human-approved corpus, OSAC-5639 needs the shared production extractor, and
-OSAC-5640 needs live shadow observations through that same extractor/schema.
-No human-confirmed signature or live bypass was approved here. Repeat this
-evaluation on those observations and on another root-separated holdout before
-changing the Vertex path.
+The retrospective labeled replay, root-separated confusion review, evidence completeness count, latency sample, wrong-route examples, duplicate upper bound, and conservative gate are complete. The production extractor and shadow call are implemented in this branch, but **no merged workflow has produced live shadow observations**. OSAC-5638 still needs independent human label/signature review, and OSAC-5640 still needs collection after the workflow is merged. Do not close OSAC-5641 as fully accepted until those observations are evaluated through this same extractor and schema and the required owner review is recorded. The bypass remains off throughout.

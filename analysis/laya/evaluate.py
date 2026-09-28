@@ -14,66 +14,13 @@ from pathlib import Path
 from typing import Any
 
 DEFAULT_ENDPOINT = "https://laya-server-laya.apps.cnv2.engineering.redhat.com/predict/batch"
-
-CRITERIA = {
-    "aap_policy": (
-        "AAP controller rejects instance_group creation or pod_spec_override policy, even if its error mentions "
-        "Kubernetes secrets."
-    ),
-    "build_dependency": (
-        "Container or app build fails due to dependency resolution, module path mismatch, or package export mismatch."
-    ),
-    "build_compile": "Go or TypeScript compiler reports a source error such as undefined symbol or type error.",
-    "source_checkout": (
-        "Git fetch/checkout fails, a requested ref is absent, or a required source/build context directory is missing."
-    ),
-    "deployment_config": (
-        "Kubernetes resource, operator, or controller configuration prevents installation or readiness; includes "
-        "missing secret, bad auth endpoint, or operator timeout."
-    ),
-    "ci_environment": (
-        "CI authorization or runner setup blocks execution before build/install/test, such as fork approval."
-    ),
-    "app_startup": (
-        "Deployed application process fails to start due to an application error, such as duplicate database migration."
-    ),
-    "app_or_e2e": (
-        "An E2E assertion, API call, provisioned resource, metering event, lifecycle, or teardown fails "
-        "after installation."
-    ),
-    "unknown": "Only an uninformative symptom is shown and no direct failing component can be determined.",
-}
-
-GLOBAL_QUESTION = {
-    "failure_domain": {
-        "type": "choice",
-        "instructions": (
-            "Choose the first directly failing component shown by the evidence. Failed AAP bootstrap is aap_policy, "
-            "not Kubernetes config. A failed AAP job that later succeeds is not the cause. "
-            "Use unknown if only a generic install timeout is shown."
-        ),
-        "criteria": CRITERIA,
-    }
-}
+SCHEMA = json.loads(Path(__file__).with_name("schema.json").read_text())
+CRITERIA = SCHEMA["questions"]["global"]["failure_domain"]["criteria"]
+GLOBAL_QUESTION = SCHEMA["questions"]["global"]
 
 
 def stage_question(stage: str) -> dict[str, Any]:
-    if stage == "build":
-        choices = ("build_dependency", "build_compile", "source_checkout", "unknown")
-        instructions = "Classify the direct error in the build or source stage."
-    else:
-        choices = ("aap_policy", "deployment_config", "app_startup", "unknown")
-        instructions = (
-            "Classify the direct install failure. AAP instance_group API rejection is aap_policy even if "
-            "Kubernetes secrets appear in the message. Use unknown for a generic timeout without direct evidence."
-        )
-    return {
-        "failure_domain": {
-            "type": "choice",
-            "instructions": instructions,
-            "criteria": {k: CRITERIA[k] for k in choices},
-        }
-    }
+    return SCHEMA["questions"][stage]
 
 
 def compact_state(state: dict[str, str]) -> dict[str, str]:
@@ -105,7 +52,7 @@ def classify_stage(step: str) -> str:
 def predict_batch(
     items: list[tuple[dict[str, Any], dict[str, str]]], question: dict[str, Any], endpoint: str
 ) -> tuple[float, list[dict[str, Any]]]:
-    payload = {"states": [state for _, state in items], "questions": question, "model": "english"}
+    payload = {"states": [state for _, state in items], "questions": question, "model": SCHEMA["model"]}
     request = urllib.request.Request(
         endpoint, data=json.dumps(payload).encode(), headers={"content-type": "application/json"}
     )
@@ -129,9 +76,9 @@ def evaluate(cases: list[dict[str, Any]], arm: str, endpoint: str) -> dict[str, 
     batches: list[dict[str, Any]] = []
     for stage, items in groups.items():
         if arm == "stage" and stage in ("e2e", "ci"):
-            choice = "app_or_e2e" if stage == "e2e" else "ci_environment"
+            choice = SCHEMA["direct_step_routes"][stage]
             predictions.extend(
-                {"pr": case["pr"], "choice": choice, "score": 1.0, "tokens": 0, "method": "deterministic_step"}
+                {"pr": case["pr"], "choice": choice, "score": None, "tokens": 0, "method": "failed_step"}
                 for case, _ in items
             )
             continue
@@ -153,7 +100,7 @@ def evaluate(cases: list[dict[str, Any]], arm: str, endpoint: str) -> dict[str, 
                     }
                 )
             print(f"{stage}: {offset + len(batch)}/{len(items)} in {elapsed:.2f}s", flush=True)
-    return {"arm": arm, "predictions": predictions, "batches": batches}
+    return {"arm": arm, "schema_version": SCHEMA["version"], "predictions": predictions, "batches": batches}
 
 
 def summarize(cases: list[dict[str, Any]], result: dict[str, Any]) -> str:
@@ -179,7 +126,12 @@ def summarize(cases: list[dict[str, Any]], result: dict[str, Any]) -> str:
         if case["label"] != by_pr[case["pr"]]["choice"]
     ]
     lines.extend(("", "Wrong routes:", ""))
-    lines.extend(f"- PR #{pr}: {actual} → {predicted} ({score:.3f})" for pr, actual, predicted, score in wrong)
+    lines.extend(
+        f"- PR #{pr}: {actual} → {predicted} ({score:.3f})"
+        if score is not None
+        else f"- PR #{pr}: {actual} → {predicted} (failed-step route)"
+        for pr, actual, predicted, score in wrong
+    )
     latencies = [batch["seconds"] for batch in result["batches"]]
     if latencies:
         lines.extend(("", f"Batch latency: median {statistics.median(latencies):.2f}s, max {max(latencies):.2f}s."))
