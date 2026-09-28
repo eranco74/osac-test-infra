@@ -1,0 +1,257 @@
+{
+  "arm": "stage",
+  "predictions": [
+    {
+      "pr": 1279,
+      "choice": "app_or_e2e",
+      "score": 1.0,
+      "tokens": 0,
+      "method": "deterministic_step"
+    },
+    {
+      "pr": 1261,
+      "choice": "app_or_e2e",
+      "score": 1.0,
+      "tokens": 0,
+      "method": "deterministic_step"
+    },
+    {
+      "pr": 1253,
+      "choice": "app_or_e2e",
+      "score": 1.0,
+      "tokens": 0,
+      "method": "deterministic_step"
+    },
+    {
+      "pr": 1217,
+      "choice": "app_or_e2e",
+      "score": 1.0,
+      "tokens": 0,
+      "method": "deterministic_step"
+    },
+    {
+      "pr": 1211,
+      "choice": "app_or_e2e",
+      "score": 1.0,
+      "tokens": 0,
+      "method": "deterministic_step"
+    },
+    {
+      "pr": 889,
+      "choice": "app_or_e2e",
+      "score": 1.0,
+      "tokens": 0,
+      "method": "deterministic_step"
+    },
+    {
+      "pr": 1247,
+      "choice": "app_or_e2e",
+      "score": 1.0,
+      "tokens": 0,
+      "method": "deterministic_step"
+    },
+    {
+      "pr": 853,
+      "choice": "app_or_e2e",
+      "score": 1.0,
+      "tokens": 0,
+      "method": "deterministic_step"
+    },
+    {
+      "pr": 1249,
+      "choice": "app_or_e2e",
+      "score": 1.0,
+      "tokens": 0,
+      "method": "deterministic_step"
+    },
+    {
+      "pr": 1229,
+      "choice": "app_or_e2e",
+      "score": 1.0,
+      "tokens": 0,
+      "method": "deterministic_step"
+    },
+    {
+      "pr": 1064,
+      "choice": "app_or_e2e",
+      "score": 1.0,
+      "tokens": 0,
+      "method": "deterministic_step"
+    },
+    {
+      "pr": 1269,
+      "choice": "build_compile",
+      "score": 0.4088,
+      "probabilities": {
+        "build_dependency": 0.2768,
+        "build_compile": 0.4088,
+        "source_checkout": 0.1175,
+        "unknown": 0.1968
+      },
+      "tokens": 260,
+      "method": "laya"
+    },
+    {
+      "pr": 865,
+      "choice": "build_compile",
+      "score": 0.4345,
+      "probabilities": {
+        "build_dependency": 0.1366,
+        "build_compile": 0.4345,
+        "source_checkout": 0.1042,
+        "unknown": 0.3248
+      },
+      "tokens": 369,
+      "method": "laya"
+    },
+    {
+      "pr": 943,
+      "choice": "build_dependency",
+      "score": 0.4631,
+      "probabilities": {
+        "build_dependency": 0.4631,
+        "build_compile": 0.2527,
+        "source_checkout": 0.1028,
+        "unknown": 0.1814
+      },
+      "tokens": 263,
+      "method": "laya"
+    },
+    {
+      "pr": 1018,
+      "choice": "build_dependency",
+      "score": 0.402,
+      "probabilities": {
+        "build_dependency": 0.402,
+        "build_compile": 0.2676,
+        "source_checkout": 0.1316,
+        "unknown": 0.1988
+      },
+      "tokens": 269,
+      "method": "laya"
+    },
+    {
+      "pr": 1126,
+      "choice": "build_compile",
+      "score": 0.4166,
+      "probabilities": {
+        "build_dependency": 0.1728,
+        "build_compile": 0.4166,
+        "source_checkout": 0.1062,
+        "unknown": 0.3044
+      },
+      "tokens": 269,
+      "method": "laya"
+    },
+    {
+      "pr": 1093,
+      "choice": "unknown",
+      "score": 0.3758,
+      "probabilities": {
+        "build_dependency": 0.1079,
+        "build_compile": 0.359,
+        "source_checkout": 0.1573,
+        "unknown": 0.3758
+      },
+      "tokens": 193,
+      "method": "laya"
+    },
+    {
+      "pr": 1102,
+      "choice": "source_checkout",
+      "score": 0.3376,
+      "probabilities": {
+        "build_dependency": 0.1926,
+        "build_compile": 0.2324,
+        "source_checkout": 0.3376,
+        "unknown": 0.2374
+      },
+      "tokens": 171,
+      "method": "laya"
+    },
+    {
+      "pr": 836,
+      "choice": "unknown",
+      "score": 0.3696,
+      "probabilities": {
+        "build_dependency": 0.1116,
+        "build_compile": 0.3611,
+        "source_checkout": 0.1577,
+        "unknown": 0.3696
+      },
+      "tokens": 193,
+      "method": "laya"
+    },
+    {
+      "pr": 1166,
+      "choice": "app_startup",
+      "score": 0.6327,
+      "probabilities": {
+        "aap_policy": 0.118,
+        "deployment_config": 0.0901,
+        "app_startup": 0.6327,
+        "unknown": 0.1592
+      },
+      "tokens": 348,
+      "method": "laya"
+    },
+    {
+      "pr": 1240,
+      "choice": "unknown",
+      "score": 0.3611,
+      "probabilities": {
+        "aap_policy": 0.2367,
+        "deployment_config": 0.1796,
+        "app_startup": 0.2226,
+        "unknown": 0.3611
+      },
+      "tokens": 215,
+      "method": "laya"
+    },
+    {
+      "pr": 1233,
+      "choice": "unknown",
+      "score": 0.3155,
+      "probabilities": {
+        "aap_policy": 0.1788,
+        "deployment_config": 0.2294,
+        "app_startup": 0.2762,
+        "unknown": 0.3155
+      },
+      "tokens": 197,
+      "method": "laya"
+    }
+  ],
+  "batches": [
+    {
+      "stage": "build",
+      "prs": [
+        1269,
+        865,
+        943,
+        1018,
+        1126
+      ],
+      "seconds": 2.997
+    },
+    {
+      "stage": "build",
+      "prs": [
+        1093,
+        1102,
+        836
+      ],
+      "seconds": 1.302
+    },
+    {
+      "stage": "install",
+      "prs": [
+        1166,
+        1240,
+        1233
+      ],
+      "seconds": 1.67
+    }
+  ],
+  "split": "holdout"
+}

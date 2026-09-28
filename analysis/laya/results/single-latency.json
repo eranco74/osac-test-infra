@@ -1,0 +1,90 @@
+[
+  {
+    "pr": 1269,
+    "stage": "build",
+    "seconds": 0.572,
+    "choice": "build_compile",
+    "score": 0.4088,
+    "tokens": 260
+  },
+  {
+    "pr": 865,
+    "stage": "build",
+    "seconds": 0.845,
+    "choice": "build_compile",
+    "score": 0.4345,
+    "tokens": 369
+  },
+  {
+    "pr": 943,
+    "stage": "build",
+    "seconds": 0.635,
+    "choice": "build_dependency",
+    "score": 0.4631,
+    "tokens": 263
+  },
+  {
+    "pr": 1018,
+    "stage": "build",
+    "seconds": 0.593,
+    "choice": "build_dependency",
+    "score": 0.402,
+    "tokens": 269
+  },
+  {
+    "pr": 1126,
+    "stage": "build",
+    "seconds": 0.587,
+    "choice": "build_compile",
+    "score": 0.4166,
+    "tokens": 269
+  },
+  {
+    "pr": 1093,
+    "stage": "build",
+    "seconds": 0.474,
+    "choice": "unknown",
+    "score": 0.3758,
+    "tokens": 193
+  },
+  {
+    "pr": 1102,
+    "stage": "build",
+    "seconds": 0.441,
+    "choice": "source_checkout",
+    "score": 0.3376,
+    "tokens": 171
+  },
+  {
+    "pr": 836,
+    "stage": "build",
+    "seconds": 0.449,
+    "choice": "unknown",
+    "score": 0.3696,
+    "tokens": 193
+  },
+  {
+    "pr": 1166,
+    "stage": "install",
+    "seconds": 0.709,
+    "choice": "app_startup",
+    "score": 0.6327,
+    "tokens": 348
+  },
+  {
+    "pr": 1240,
+    "stage": "install",
+    "seconds": 0.491,
+    "choice": "unknown",
+    "score": 0.3611,
+    "tokens": 215
+  },
+  {
+    "pr": 1233,
+    "stage": "install",
+    "seconds": 0.497,
+    "choice": "unknown",
+    "score": 0.3155,
+    "tokens": 197
+  }
+]

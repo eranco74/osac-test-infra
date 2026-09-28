@@ -1,0 +1,946 @@
+[
+  {
+    "pr": 1221,
+    "run_id": 36036689098,
+    "url": "https://github.com/osac-project/osac/actions/runs/36036689098",
+    "split": "development",
+    "label": "aap_policy",
+    "root_group": "aap_instance_group_policy",
+    "label_basis": "AAP controller rejects instance-group pod_spec_override secret mounts",
+    "artifact": true,
+    "state": {
+      "failed_step": "Install OSAC",
+      "job_error": "job.log:3468: Error: failed post-install: 1 error occurred:\njob.log:3469: * timed out waiting for the condition",
+      "pod_error": "pod-osac-aap-bootstrap-8zvvs-bootstrap.log:221: [ERROR]: Task failed: Module failed: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\npod-osac-aap-bootstrap-8zvvs-bootstrap.log:229: fatal: [localhost]: FAILED! => {\"ansible_job_id\": \"j17965178595.245\", \"attempts\": 1, \"changed\": false, \"finished\": true, \"msg\": \"Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\", \"results_file\": \"/runner/.ansible_async/j17965178595.245\", \"started\": true, \"stderr\": \"\", \"stderr_lines\": [], \"stdout\": \"\", \"stdout_lines\": []}",
+      "traceback": ""
+    }
+  },
+  {
+    "pr": 1214,
+    "run_id": 36035665623,
+    "url": "https://github.com/osac-project/osac/actions/runs/36035665623",
+    "split": "development",
+    "label": "aap_policy",
+    "root_group": "aap_instance_group_policy",
+    "label_basis": "AAP controller rejects instance-group pod_spec_override secret mounts",
+    "artifact": true,
+    "state": {
+      "failed_step": "Install OSAC",
+      "job_error": "job.log:3491: Error: failed post-install: 1 error occurred:\njob.log:3492: * timed out waiting for the condition",
+      "pod_error": "pod-osac-aap-bootstrap-brb77-bootstrap.log:221: [ERROR]: Task failed: Module failed: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\npod-osac-aap-bootstrap-brb77-bootstrap.log:229: fatal: [localhost]: FAILED! => {\"ansible_job_id\": \"j829051586173.246\", \"attempts\": 1, \"changed\": false, \"finished\": true, \"msg\": \"Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\", \"results_file\": \"/runner/.ansible_async/j829051586173.246\", \"started\": true, \"stderr\": \"\", \"stderr_lines\": [], \"stdout\": \"\", \"stdout_lines\": []}",
+      "traceback": ""
+    }
+  },
+  {
+    "pr": 1215,
+    "run_id": 36016167519,
+    "url": "https://github.com/osac-project/osac/actions/runs/36016167519",
+    "split": "development",
+    "label": "aap_policy",
+    "root_group": "aap_instance_group_policy",
+    "label_basis": "AAP controller rejects instance-group pod_spec_override secret mounts",
+    "artifact": true,
+    "state": {
+      "failed_step": "Install OSAC",
+      "job_error": "job.log:3476: Error: failed post-install: 1 error occurred:\njob.log:3477: * timed out waiting for the condition",
+      "pod_error": "pod-osac-aap-bootstrap-7sc77-bootstrap.log:221: [ERROR]: Task failed: Module failed: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\npod-osac-aap-bootstrap-7sc77-bootstrap.log:229: fatal: [localhost]: FAILED! => {\"ansible_job_id\": \"j982489649561.246\", \"attempts\": 1, \"changed\": false, \"finished\": true, \"msg\": \"Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\", \"results_file\": \"/runner/.ansible_async/j982489649561.246\", \"started\": true, \"stderr\": \"\", \"stderr_lines\": [], \"stdout\": \"\", \"stdout_lines\": []}",
+      "traceback": ""
+    }
+  },
+  {
+    "pr": 1090,
+    "run_id": 36009034925,
+    "url": "https://github.com/osac-project/osac/actions/runs/36009034925",
+    "split": "development",
+    "label": "aap_policy",
+    "root_group": "aap_instance_group_policy",
+    "label_basis": "AAP controller rejects instance-group pod_spec_override secret mounts",
+    "artifact": true,
+    "state": {
+      "failed_step": "Install OSAC",
+      "job_error": "job.log:4814: Error: failed post-install: 1 error occurred:\njob.log:4815: * timed out waiting for the condition",
+      "pod_error": "pod-osac-aap-bootstrap-4bdmp-bootstrap.log:221: [ERROR]: Task failed: Module failed: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\npod-osac-aap-bootstrap-4bdmp-bootstrap.log:229: fatal: [localhost]: FAILED! => {\"ansible_job_id\": \"j702861799052.246\", \"attempts\": 1, \"changed\": false, \"finished\": true, \"msg\": \"Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\", \"results_file\": \"/runner/.ansible_async/j702861799052.246\", \"started\": true, \"stderr\": \"\", \"stderr_lines\": [], \"stdout\": \"\", \"stdout_lines\": []}",
+      "traceback": ""
+    }
+  },
+  {
+    "pr": 1120,
+    "run_id": 36025916120,
+    "url": "https://github.com/osac-project/osac/actions/runs/36025916120",
+    "split": "development",
+    "label": "aap_policy",
+    "root_group": "aap_instance_group_policy",
+    "label_basis": "AAP controller rejects instance-group pod_spec_override secret mounts",
+    "artifact": true,
+    "state": {
+      "failed_step": "Install OSAC",
+      "job_error": "job.log:3310: Error: failed post-install: 1 error occurred:\njob.log:3311: * timed out waiting for the condition",
+      "pod_error": "pod-osac-aap-bootstrap-7lbxh-bootstrap.log:221: [ERROR]: Task failed: Module failed: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\npod-osac-aap-bootstrap-7lbxh-bootstrap.log:229: fatal: [localhost]: FAILED! => {\"ansible_job_id\": \"j82847603574.246\", \"attempts\": 1, \"changed\": false, \"finished\": true, \"msg\": \"Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\", \"results_file\": \"/runner/.ansible_async/j82847603574.246\", \"started\": true, \"stderr\": \"\", \"stderr_lines\": [], \"stdout\": \"\", \"stdout_lines\": []}",
+      "traceback": ""
+    }
+  },
+  {
+    "pr": 1199,
+    "run_id": 36149287001,
+    "url": "https://github.com/osac-project/osac/actions/runs/36149287001",
+    "split": "development",
+    "label": "aap_policy",
+    "root_group": "aap_instance_group_policy",
+    "label_basis": "AAP controller rejects instance-group pod_spec_override secret mounts",
+    "artifact": true,
+    "state": {
+      "failed_step": "Install OSAC",
+      "job_error": "job.log:3442: Error: failed post-install: 1 error occurred:\njob.log:3443: * timed out waiting for the condition",
+      "pod_error": "pod-osac-aap-bootstrap-4w7cg-bootstrap.log:221: [ERROR]: Task failed: Module failed: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\npod-osac-aap-bootstrap-4w7cg-bootstrap.log:229: fatal: [localhost]: FAILED! => {\"ansible_job_id\": \"j14118520922.246\", \"attempts\": 1, \"changed\": false, \"finished\": true, \"msg\": \"Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\", \"results_file\": \"/runner/.ansible_async/j14118520922.246\", \"started\": true, \"stderr\": \"\", \"stderr_lines\": [], \"stdout\": \"\", \"stdout_lines\": []}",
+      "traceback": ""
+    }
+  },
+  {
+    "pr": 1202,
+    "run_id": 36022121003,
+    "url": "https://github.com/osac-project/osac/actions/runs/36022121003",
+    "split": "development",
+    "label": "aap_policy",
+    "root_group": "aap_instance_group_policy",
+    "label_basis": "AAP controller rejects instance-group pod_spec_override secret mounts",
+    "artifact": true,
+    "state": {
+      "failed_step": "Install OSAC",
+      "job_error": "job.log:3469: Error: failed post-install: 1 error occurred:\njob.log:3470: * timed out waiting for the condition",
+      "pod_error": "pod-osac-aap-bootstrap-4vcsh-bootstrap.log:221: [ERROR]: Task failed: Module failed: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\npod-osac-aap-bootstrap-4vcsh-bootstrap.log:229: fatal: [localhost]: FAILED! => {\"ansible_job_id\": \"j270933605831.246\", \"attempts\": 1, \"changed\": false, \"finished\": true, \"msg\": \"Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\", \"results_file\": \"/runner/.ansible_async/j270933605831.246\", \"started\": true, \"stderr\": \"\", \"stderr_lines\": [], \"stdout\": \"\", \"stdout_lines\": []}",
+      "traceback": ""
+    }
+  },
+  {
+    "pr": 1152,
+    "run_id": 36021863244,
+    "url": "https://github.com/osac-project/osac/actions/runs/36021863244",
+    "split": "development",
+    "label": "aap_policy",
+    "root_group": "aap_instance_group_policy",
+    "label_basis": "AAP controller rejects instance-group pod_spec_override secret mounts",
+    "artifact": true,
+    "state": {
+      "failed_step": "Install OSAC",
+      "job_error": "job.log:3371: Error: failed post-install: 1 error occurred:\njob.log:3372: * timed out waiting for the condition",
+      "pod_error": "pod-osac-aap-bootstrap-4mbfh-bootstrap.log:221: [ERROR]: Task failed: Module failed: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\npod-osac-aap-bootstrap-4mbfh-bootstrap.log:229: fatal: [localhost]: FAILED! => {\"ansible_job_id\": \"j649380299538.246\", \"attempts\": 1, \"changed\": false, \"finished\": true, \"msg\": \"Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\", \"results_file\": \"/runner/.ansible_async/j649380299538.246\", \"started\": true, \"stderr\": \"\", \"stderr_lines\": [], \"stdout\": \"\", \"stdout_lines\": []}",
+      "traceback": ""
+    }
+  },
+  {
+    "pr": 1204,
+    "run_id": 36020712543,
+    "url": "https://github.com/osac-project/osac/actions/runs/36020712543",
+    "split": "development",
+    "label": "aap_policy",
+    "root_group": "aap_instance_group_policy",
+    "label_basis": "AAP controller rejects instance-group pod_spec_override secret mounts",
+    "artifact": true,
+    "state": {
+      "failed_step": "Install OSAC",
+      "job_error": "job.log:4716: Error: failed post-install: 1 error occurred:\njob.log:4717: * timed out waiting for the condition",
+      "pod_error": "pod-osac-aap-bootstrap-6vqt2-bootstrap.log:221: [ERROR]: Task failed: Module failed: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\npod-osac-aap-bootstrap-6vqt2-bootstrap.log:229: fatal: [localhost]: FAILED! => {\"ansible_job_id\": \"j893043322580.246\", \"attempts\": 1, \"changed\": false, \"finished\": true, \"msg\": \"Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\", \"results_file\": \"/runner/.ansible_async/j893043322580.246\", \"started\": true, \"stderr\": \"\", \"stderr_lines\": [], \"stdout\": \"\", \"stdout_lines\": []}",
+      "traceback": ""
+    }
+  },
+  {
+    "pr": 1143,
+    "run_id": 36003966018,
+    "url": "https://github.com/osac-project/osac/actions/runs/36003966018",
+    "split": "development",
+    "label": "aap_policy",
+    "root_group": "aap_instance_group_policy",
+    "label_basis": "AAP controller rejects instance-group pod_spec_override secret mounts",
+    "artifact": true,
+    "state": {
+      "failed_step": "Install OSAC",
+      "job_error": "job.log:3443: Error: failed post-install: 1 error occurred:\njob.log:3444: * timed out waiting for the condition",
+      "pod_error": "pod-osac-aap-bootstrap-65cdc-bootstrap.log:221: [ERROR]: Task failed: Module failed: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\npod-osac-aap-bootstrap-65cdc-bootstrap.log:229: fatal: [localhost]: FAILED! => {\"ansible_job_id\": \"j27293007377.246\", \"attempts\": 1, \"changed\": false, \"finished\": true, \"msg\": \"Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\", \"results_file\": \"/runner/.ansible_async/j27293007377.246\", \"started\": true, \"stderr\": \"\", \"stderr_lines\": [], \"stdout\": \"\", \"stdout_lines\": []}",
+      "traceback": ""
+    }
+  },
+  {
+    "pr": 1219,
+    "run_id": 36017843690,
+    "url": "https://github.com/osac-project/osac/actions/runs/36017843690",
+    "split": "development",
+    "label": "aap_policy",
+    "root_group": "aap_instance_group_policy",
+    "label_basis": "AAP controller rejects instance-group pod_spec_override secret mounts",
+    "artifact": true,
+    "state": {
+      "failed_step": "Install OSAC",
+      "job_error": "job.log:3457: Error: failed post-install: 1 error occurred:\njob.log:3458: * timed out waiting for the condition",
+      "pod_error": "pod-osac-aap-bootstrap-b7ftx-bootstrap.log:221: [ERROR]: Task failed: Module failed: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\npod-osac-aap-bootstrap-b7ftx-bootstrap.log:229: fatal: [localhost]: FAILED! => {\"ansible_job_id\": \"j328216120114.246\", \"attempts\": 1, \"changed\": false, \"finished\": true, \"msg\": \"Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\", \"results_file\": \"/runner/.ansible_async/j328216120114.246\", \"started\": true, \"stderr\": \"\", \"stderr_lines\": [], \"stdout\": \"\", \"stdout_lines\": []}",
+      "traceback": ""
+    }
+  },
+  {
+    "pr": 1191,
+    "run_id": 36014802243,
+    "url": "https://github.com/osac-project/osac/actions/runs/36014802243",
+    "split": "development",
+    "label": "aap_policy",
+    "root_group": "aap_instance_group_policy",
+    "label_basis": "AAP controller rejects instance-group pod_spec_override secret mounts",
+    "artifact": true,
+    "state": {
+      "failed_step": "Install OSAC",
+      "job_error": "job.log:4734: Error: failed post-install: 1 error occurred:\njob.log:4735: * timed out waiting for the condition",
+      "pod_error": "pod-osac-aap-bootstrap-26knl-bootstrap.log:221: [ERROR]: Task failed: Module failed: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\npod-osac-aap-bootstrap-26knl-bootstrap.log:229: fatal: [localhost]: FAILED! => {\"ansible_job_id\": \"j525149253513.246\", \"attempts\": 1, \"changed\": false, \"finished\": true, \"msg\": \"Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\", \"results_file\": \"/runner/.ansible_async/j525149253513.246\", \"started\": true, \"stderr\": \"\", \"stderr_lines\": [], \"stdout\": \"\", \"stdout_lines\": []}",
+      "traceback": ""
+    }
+  },
+  {
+    "pr": 983,
+    "run_id": 36014299696,
+    "url": "https://github.com/osac-project/osac/actions/runs/36014299696",
+    "split": "development",
+    "label": "aap_policy",
+    "root_group": "aap_instance_group_policy",
+    "label_basis": "AAP controller rejects instance-group pod_spec_override secret mounts",
+    "artifact": true,
+    "state": {
+      "failed_step": "Install OSAC",
+      "job_error": "job.log:4797: Error: failed post-install: 1 error occurred:\njob.log:4798: * timed out waiting for the condition",
+      "pod_error": "pod-osac-aap-bootstrap-jvwfl-bootstrap.log:221: [ERROR]: Task failed: Module failed: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\npod-osac-aap-bootstrap-jvwfl-bootstrap.log:229: fatal: [localhost]: FAILED! => {\"ansible_job_id\": \"j355091777238.246\", \"attempts\": 1, \"changed\": false, \"finished\": true, \"msg\": \"Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\", \"results_file\": \"/runner/.ansible_async/j355091777238.246\", \"started\": true, \"stderr\": \"\", \"stderr_lines\": [], \"stdout\": \"\", \"stdout_lines\": []}",
+      "traceback": ""
+    }
+  },
+  {
+    "pr": 1198,
+    "run_id": 36013272859,
+    "url": "https://github.com/osac-project/osac/actions/runs/36013272859",
+    "split": "development",
+    "label": "aap_policy",
+    "root_group": "aap_instance_group_policy",
+    "label_basis": "AAP controller rejects instance-group pod_spec_override secret mounts",
+    "artifact": true,
+    "state": {
+      "failed_step": "Install OSAC",
+      "job_error": "job.log:3411: Error: failed post-install: 1 error occurred:\njob.log:3412: * timed out waiting for the condition",
+      "pod_error": "pod-osac-aap-bootstrap-g28mc-bootstrap.log:221: [ERROR]: Task failed: Module failed: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\npod-osac-aap-bootstrap-g28mc-bootstrap.log:229: fatal: [localhost]: FAILED! => {\"ansible_job_id\": \"j976707683136.246\", \"attempts\": 1, \"changed\": false, \"finished\": true, \"msg\": \"Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\", \"results_file\": \"/runner/.ansible_async/j976707683136.246\", \"started\": true, \"stderr\": \"\", \"stderr_lines\": [], \"stdout\": \"\", \"stdout_lines\": []}",
+      "traceback": ""
+    }
+  },
+  {
+    "pr": 975,
+    "run_id": 36025780172,
+    "url": "https://github.com/osac-project/osac/actions/runs/36025780172",
+    "split": "development",
+    "label": "build_dependency",
+    "root_group": "go_version",
+    "label_basis": "go.work 1.26.3 conflicts with modules requiring Go >=1.27",
+    "artifact": true,
+    "state": {
+      "failed_step": "Build and load component images",
+      "job_error": "job.log:701: go: module ../bare-metal-fulfillment-operator listed in go.work file requires go >= 1.27.0, but go.work lists go 1.26.3; to update it:\njob.log:703: go: module . listed in go.work file requires go >= 1.27.0, but go.work lists go 1.26.3; to update it:\njob.log:705: go: module ../osac-operator listed in go.work file requires go >= 1.27.0, but go.work lists go 1.26.3; to update it:",
+      "pod_error": "",
+      "traceback": ""
+    }
+  },
+  {
+    "pr": 1222,
+    "run_id": 36023169923,
+    "url": "https://github.com/osac-project/osac/actions/runs/36023169923",
+    "split": "development",
+    "label": "ci_environment",
+    "root_group": "fork_authorization",
+    "label_basis": "fork PR blocked until /ok-to-test",
+    "artifact": false,
+    "state": {
+      "failed_step": "Authorize fork PR",
+      "job_error": "job.log:391: ##[error]Fork PR blocked: 'jeff-phillips-18' is not an osac-project org member.\njob.log:392: ##[error]An org member can approve this PR for testing by commenting /ok-to-test",
+      "pod_error": "",
+      "traceback": ""
+    }
+  },
+  {
+    "pr": 1072,
+    "run_id": 35996210946,
+    "url": "https://github.com/osac-project/osac/actions/runs/35996210946",
+    "split": "development",
+    "label": "source_checkout",
+    "root_group": "aap_project_checkout",
+    "label_basis": "AAP project update git checkout cannot read requested tree",
+    "artifact": true,
+    "state": {
+      "failed_step": "Install OSAC",
+      "job_error": "job.log:4660: Error: failed post-install: 1 error occurred:",
+      "pod_error": "aap-jobs/project-update-1-failed.txt:5: AAP project-update command=/usr/bin/git checkout: Failed to checkout 0c3fbf98fb2a0f324048f79f62727954c44cb0f9; git stderr: fatal: unable to read tree (0c3fbf98fb2a0f324048f79f62727954c44cb0f9)\\n",
+      "traceback": ""
+    }
+  },
+  {
+    "pr": 987,
+    "run_id": 35986632526,
+    "url": "https://github.com/osac-project/osac/actions/runs/35986632526",
+    "split": "development",
+    "label": "app_or_e2e",
+    "root_group": "metering_missing",
+    "label_basis": "E2E teardown times out waiting for resource.deleted metering event; underlying cause unresolved",
+    "artifact": true,
+    "state": {
+      "failed_step": "Run E2E tests",
+      "job_error": "",
+      "pod_error": "",
+      "traceback": "junit.xml/test_short_lived_vm_metering:1: E       TimeoutError: metering event type=osac.resource.deleted.v1 resource_id=[UUID] \u2014 timeout after 178s, last value: False"
+    }
+  },
+  {
+    "pr": 1049,
+    "run_id": 35136466248,
+    "url": "https://github.com/osac-project/osac/actions/runs/35136466248",
+    "split": "development",
+    "label": "ci_environment",
+    "root_group": "fork_authorization",
+    "label_basis": "fork PR blocked until /ok-to-test",
+    "artifact": false,
+    "state": {
+      "failed_step": "Authorize fork PR",
+      "job_error": "job.log:392: ##[error]Fork PR blocked: 'bkopilov' is not an osac-project org member.\njob.log:393: ##[error]An org member can approve this PR for testing by commenting /ok-to-test",
+      "pod_error": "",
+      "traceback": ""
+    }
+  },
+  {
+    "pr": 1190,
+    "run_id": 35872305689,
+    "url": "https://github.com/osac-project/osac/actions/runs/35872305689",
+    "split": "development",
+    "label": "deployment_config",
+    "root_group": "kafka_secret_scc",
+    "label_basis": "Kafka copy job rejected by SCC; fulfillment Kafka secret then lacks brokers key, preventing gRPC pod start",
+    "artifact": true,
+    "state": {
+      "failed_step": "Install OSAC",
+      "job_error": "job.log:3446: Error: context deadline exceeded",
+      "pod_error": "events.txt:294: OSAC namespace event: 35m         Warning   FailedCreate            job/osac-copy-fulfillment-kafka-1                          Error creating: pods \"osac-copy-fulfillment-kafka-1-\" is forbidden: unable to validate against any security context constraint: [provider \"anyuid\": Forbidden: not usable by user or serviceaccount, provider restricted-v2: .spec.securityContext.fsGroup: Invalid value: [1000]: 1000 is not an allowed group, provider restricted-v2: .containers[0]\nevents.txt:358: OSAC namespace event: 3m18s       Warning   FailedMount             pod/fulfillment-grpc-server-674544dc99-npdgz               MountVolume.SetUp failed for volume \"kafka\" : references non-existent secret key: brokers",
+      "traceback": ""
+    }
+  },
+  {
+    "pr": 1134,
+    "run_id": 36305732023,
+    "url": "https://github.com/osac-project/osac/actions/runs/36305732023",
+    "split": "development",
+    "label": "build_compile",
+    "root_group": "typescript_errors",
+    "label_basis": "frontend TypeScript compilation errors",
+    "artifact": true,
+    "state": {
+      "failed_step": "Build and load component images",
+      "job_error": "job.log:4037: ../../libs/ui-components/src/api/v1/baremetal-instance.ts(24,28): error TS2339: Property 'items' does not exist on type 'Message<string>'.\njob.log:4038: ../../libs/ui-components/src/api/v1/baremetal-instance.ts(34,28): error TS2339: Property 'object' does not exist on type 'Message<string>'.\njob.log:4043: ../../libs/ui-components/src/api/v1/cluster-catalog-item.ts(12,28): error TS2339: Property 'items' does not exist on type 'Message<string>'.",
+      "pod_error": "",
+      "traceback": ""
+    }
+  },
+  {
+    "pr": 992,
+    "run_id": 36305801003,
+    "url": "https://github.com/osac-project/osac/actions/runs/36305801003",
+    "split": "development",
+    "label": "build_dependency",
+    "root_group": "ansible_core_conflict",
+    "label_basis": "ansible 13.4.0 requires ansible-core 2.20.x but build pins 2.21.4",
+    "artifact": true,
+    "state": {
+      "failed_step": "Build and load component images",
+      "job_error": "job.log:1922: ERROR: Cannot install -r /tmp/src/requirements.txt (line 33) and ansible-core==2.21.4 because these package versions have conflicting dependencies.\njob.log:1930: ERROR: ResolutionImpossible: for help visit [URL]\njob.log:1936: Error: building at STEP \"RUN /output/scripts/assemble\": while running runtime: exit status 1",
+      "pod_error": "",
+      "traceback": ""
+    }
+  },
+  {
+    "pr": 858,
+    "run_id": 34469803208,
+    "url": "https://github.com/osac-project/osac/actions/runs/34469803208",
+    "split": "development",
+    "label": "build_dependency",
+    "root_group": "missing_osac_cli_binary",
+    "label_basis": "container build cannot find /usr/local/bin/osac",
+    "artifact": true,
+    "state": {
+      "failed_step": "Build and load component images",
+      "job_error": "job.log:725: Error: \"/usr/local/bin/osac\" could not be found on container 366e3c350f3e3819fb6d67d1fd71a382dca315e2a84fe3ed8013992eb80d9dc3: no such file or directory",
+      "pod_error": "",
+      "traceback": ""
+    }
+  },
+  {
+    "pr": 849,
+    "run_id": 36305893836,
+    "url": "https://github.com/osac-project/osac/actions/runs/36305893836",
+    "split": "development",
+    "label": "app_startup",
+    "root_group": "duplicate_migration_113",
+    "label_basis": "fulfillment gRPC server crashes on duplicate 113_create_add_on_operators_tables.up.sql migration",
+    "artifact": true,
+    "state": {
+      "failed_step": "Install OSAC",
+      "job_error": "job.log:2743: Error: context deadline exceeded",
+      "pod_error": "pod-fulfillment-grpc-server-5fc886cdf-d8gbb-grpc-server-previous.log:13: failed to init driver with path migrations: duplicate migration file: 113_create_add_on_operators_tables.up.sql\npod-osac-ui-85b765cf8d-nv9cz-osac-ui-previous.log:2: time=\"2026-09-27T11:22:42Z\" level=fatal msg=\"Failed to create Connect JSON proxy\" func=main.main file=\"/build/main.go:110\" error=\"grpc reflection: rpc error: code = Unavailable desc = no healthy upstream\"",
+      "traceback": ""
+    }
+  },
+  {
+    "pr": 851,
+    "run_id": 35869801011,
+    "url": "https://github.com/osac-project/osac/actions/runs/35869801011",
+    "split": "development",
+    "label": "aap_policy",
+    "root_group": "aap_instance_group_policy",
+    "label_basis": "AAP controller rejects instance-group pod_spec_override secret mounts",
+    "artifact": true,
+    "state": {
+      "failed_step": "Install OSAC",
+      "job_error": "job.log:4674: Error: failed post-install: 1 error occurred:\njob.log:4675: * timed out waiting for the condition",
+      "pod_error": "pod-osac-aap-bootstrap-8hd6m-bootstrap.log:221: [ERROR]: Task failed: Module failed: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\npod-osac-aap-bootstrap-8hd6m-bootstrap.log:229: fatal: [localhost]: FAILED! => {\"ansible_job_id\": \"j175261190501.246\", \"attempts\": 1, \"changed\": false, \"finished\": true, \"msg\": \"Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\", \"results_file\": \"/runner/.ansible_async/j175261190501.246\", \"started\": true, \"stderr\": \"\", \"stderr_lines\": [], \"stdout\": \"\", \"stdout_lines\": []}",
+      "traceback": ""
+    }
+  },
+  {
+    "pr": 1279,
+    "run_id": 36421728816,
+    "url": "https://github.com/osac-project/osac/actions/runs/36421728816",
+    "split": "holdout",
+    "label": "app_or_e2e",
+    "root_group": "assignable_tenants",
+    "label_basis": "Verified observed failure from failed job log and artifact; causal root may require investigation",
+    "artifact": true,
+    "state": {
+      "failed_step": "Run E2E tests",
+      "job_error": "job.log:3704: stderr = 'ERROR:\\n  Code: Internal\\n  Message: failed to determine assignable tenants\\n'",
+      "pod_error": "",
+      "traceback": "junit.xml/test_baremetal_instance_lifecycle:1: subprocess.CalledProcessError in test_baremetal_instance_lifecycle\njunit.xml/test_baremetal_instance_restart:1: subprocess.CalledProcessError in test_baremetal_instance_restart"
+    }
+  },
+  {
+    "pr": 1261,
+    "run_id": 36407848432,
+    "url": "https://github.com/osac-project/osac/actions/runs/36407848432",
+    "split": "holdout",
+    "label": "app_or_e2e",
+    "root_group": "caas_order_failed",
+    "label_basis": "Verified observed failure from failed job log and artifact; causal root may require investigation",
+    "artifact": true,
+    "state": {
+      "failed_step": "Run E2E tests",
+      "job_error": "",
+      "pod_error": "",
+      "traceback": "junit.xml/test_cluster_create:1: E       TimeoutError: order-nz6sx ClusterOrder Ready \u2014 timeout after 7185s, last value: 'Failed'\njunit.xml/test_reject_sg_from_wrong_vn:1: E       TimeoutError: virtualnetwork-xr2fn VirtualNetwork Ready \u2014 timeout after 295s, last value: ''"
+    }
+  },
+  {
+    "pr": 1253,
+    "run_id": 36348198897,
+    "url": "https://github.com/osac-project/osac/actions/runs/36348198897",
+    "split": "holdout",
+    "label": "app_or_e2e",
+    "root_group": "bmaas_subnet_pending",
+    "label_basis": "Verified observed failure from failed job log and artifact; causal root may require investigation",
+    "artifact": true,
+    "state": {
+      "failed_step": "Run E2E tests",
+      "job_error": "job.log:5253: stderr = \"Error: failed to create bare metal instance: rpc error: code = FailedPrecondition desc = subnet '[UUID]' in spec.network_attachments[0] is not in READY state (current state: SUBNET_STATE_PENDING)\\n\"\njob.log:5399: stderr = \"ERROR:\\n  Code: FailedPrecondition\\n  Message: subnet '[UUID]' in spec.network_attachments[0] is not in READY state (current state: SUBNET_STATE_PENDING)\\n\"",
+      "pod_error": "",
+      "traceback": "junit.xml/test_baremetal_instance_lifecycle:1: subprocess.CalledProcessError in test_baremetal_instance_lifecycle\njunit.xml/test_baremetal_instance_restart:1: subprocess.CalledProcessError in test_baremetal_instance_restart"
+    }
+  },
+  {
+    "pr": 1217,
+    "run_id": 36321937411,
+    "url": "https://github.com/osac-project/osac/actions/runs/36321937411",
+    "split": "holdout",
+    "label": "app_or_e2e",
+    "root_group": "bmaas_subnet_pending",
+    "label_basis": "Verified observed failure from failed job log and artifact; causal root may require investigation",
+    "artifact": true,
+    "state": {
+      "failed_step": "Run E2E tests",
+      "job_error": "job.log:3761: stderr = \"Error: failed to create bare metal instance: rpc error: code = FailedPrecondition desc = subnet '[UUID]' in spec.network_attachments[0] is not in READY state (current state: SUBNET_STATE_PENDING)\\n\"\njob.log:3907: stderr = \"ERROR:\\n  Code: FailedPrecondition\\n  Message: subnet '[UUID]' in spec.network_attachments[0] is not in READY state (current state: SUBNET_STATE_PENDING)\\n\"",
+      "pod_error": "",
+      "traceback": "junit.xml/test_baremetal_instance_lifecycle:1: subprocess.CalledProcessError in test_baremetal_instance_lifecycle\njunit.xml/test_baremetal_instance_restart:1: subprocess.CalledProcessError in test_baremetal_instance_restart"
+    }
+  },
+  {
+    "pr": 1211,
+    "run_id": 36267916437,
+    "url": "https://github.com/osac-project/osac/actions/runs/36267916437",
+    "split": "holdout",
+    "label": "app_or_e2e",
+    "root_group": "caas_delete_timeout",
+    "label_basis": "Verified observed failure from failed job log and artifact; causal root may require investigation",
+    "artifact": true,
+    "state": {
+      "failed_step": "Run E2E tests",
+      "job_error": "",
+      "pod_error": "",
+      "traceback": "junit.xml/test_cluster_create:1: E       TimeoutError: order-xg6n2 ClusterOrder deletion \u2014 timeout after 1190s, last value: False"
+    }
+  },
+  {
+    "pr": 889,
+    "run_id": 36097121927,
+    "url": "https://github.com/osac-project/osac/actions/runs/36097121927",
+    "split": "holdout",
+    "label": "app_or_e2e",
+    "root_group": "metering_schema",
+    "label_basis": "Verified observed failure from failed job log and artifact; causal root may require investigation",
+    "artifact": true,
+    "state": {
+      "failed_step": "Run E2E tests",
+      "job_error": "",
+      "pod_error": "",
+      "traceback": "junit.xml/test_cluster_create:1: E       AssertionError: Missing host_type in billing_dimensions\njunit.xml/test_cluster_create:1: E       TimeoutError: metering event type=osac.resource.updated.v1 resource_id=[UUID] \u2014 timeout after 118s, last value: False"
+    }
+  },
+  {
+    "pr": 1218,
+    "run_id": 36330935679,
+    "url": "https://github.com/osac-project/osac/actions/runs/36330935679",
+    "split": "development",
+    "label": "app_or_e2e",
+    "root_group": "metering_missing",
+    "label_basis": "Verified observed failure from failed job log and artifact; causal root may require investigation",
+    "artifact": true,
+    "state": {
+      "failed_step": "Run E2E tests",
+      "job_error": "",
+      "pod_error": "",
+      "traceback": "junit.xml/test_compute_instance_delete_during_provision:1: E       TimeoutError: metering event type=osac.resource.deleted.v1 resource_id=[UUID] \u2014 timeout after 58s, last value: False"
+    }
+  },
+  {
+    "pr": 1262,
+    "run_id": 36327757641,
+    "url": "https://github.com/osac-project/osac/actions/runs/36327757641",
+    "split": "development",
+    "label": "app_or_e2e",
+    "root_group": "metering_missing",
+    "label_basis": "Verified observed failure from failed job log and artifact; causal root may require investigation",
+    "artifact": true,
+    "state": {
+      "failed_step": "Run E2E tests",
+      "job_error": "",
+      "pod_error": "",
+      "traceback": "junit.xml/test_attach_detach_reattach:1: E       TimeoutError: metering event type=osac.resource.updated.v1 resource_id=[UUID] \u2014 timeout after 58s, last value: False\njunit.xml/test_compute_instance_delete_during_provision:1: E       TimeoutError: metering event type=osac.resource.deleted.v1 resource_id=[UUID] \u2014 timeout after 58s, last value: False"
+    }
+  },
+  {
+    "pr": 1247,
+    "run_id": 36310778101,
+    "url": "https://github.com/osac-project/osac/actions/runs/36310778101",
+    "split": "holdout",
+    "label": "app_or_e2e",
+    "root_group": "vm_delete_visibility",
+    "label_basis": "Verified observed failure from failed job log and artifact; causal root may require investigation",
+    "artifact": true,
+    "state": {
+      "failed_step": "Run E2E tests",
+      "job_error": "",
+      "pod_error": "",
+      "traceback": "junit.xml/test_compute_instance_restart:1: E           AssertionError: ComputeInstance [UUID] still present in gRPC list after deletion"
+    }
+  },
+  {
+    "pr": 853,
+    "run_id": 36305881487,
+    "url": "https://github.com/osac-project/osac/actions/runs/36305881487",
+    "split": "holdout",
+    "label": "app_or_e2e",
+    "root_group": "external_ip_timeout",
+    "label_basis": "Verified observed failure from failed job log and artifact; causal root may require investigation",
+    "artifact": true,
+    "state": {
+      "failed_step": "Run E2E tests",
+      "job_error": "",
+      "pod_error": "",
+      "traceback": "junit.xml/test_validation_rejections:1: E       TimeoutError: duplicate-attachment ExternalIP settlement \u2014 timeout after 145s, last value: {'id': '[UUID]', 'metadata': {'creationTimestamp': '2026-09-27T11:14:29.221811Z', 'creator': '[UUID]', 'tenant': 'tenant1', 'name': 'test-ip-00c4d091', 'version': 4, 'finalizers': ['fulfillment-controller']}, 'spec': {'pool': {'id': '[UUID]', 'name': 'test-pool-0db1ac4d'}}, 'status': {'state': 'EXTERNAL_IP_STATE_ALLOCATED', 'address': '[IP]', 'hub': 'hub', 'stateTransitionTime': '2026-09-27T11:15:0\njunit.xml/test_validation_rejections:1: E       TimeoutError: externalip-grn6s ExternalIP deletion \u2014 timeout after 595s, last value: False"
+    }
+  },
+  {
+    "pr": 974,
+    "run_id": 36305816318,
+    "url": "https://github.com/osac-project/osac/actions/runs/36305816318",
+    "split": "development",
+    "label": "app_or_e2e",
+    "root_group": "metering_missing",
+    "label_basis": "Verified observed failure from failed job log and artifact; causal root may require investigation",
+    "artifact": true,
+    "state": {
+      "failed_step": "Run E2E tests",
+      "job_error": "",
+      "pod_error": "",
+      "traceback": "junit.xml/test_compute_instance_stop_metering:1: E       TimeoutError: metering event type=osac.resource.suspended.v1 resource_id=[UUID] \u2014 timeout after 118s, last value: False\njunit.xml/test_compute_instance_stop_metering:1: | TimeoutError: metering event type=osac.resource.suspended.v1 resource_id=[UUID] \u2014 timeout after 118s, last value: False"
+    }
+  },
+  {
+    "pr": 1249,
+    "run_id": 36306162239,
+    "url": "https://github.com/osac-project/osac/actions/runs/36306162239",
+    "split": "holdout",
+    "label": "app_or_e2e",
+    "root_group": "caas_order_failed",
+    "label_basis": "Verified observed failure from failed job log and artifact; causal root may require investigation",
+    "artifact": true,
+    "state": {
+      "failed_step": "Run E2E tests",
+      "job_error": "",
+      "pod_error": "",
+      "traceback": "junit.xml/test_cluster_create:1: E       TimeoutError: order-hrwxd ClusterOrder Ready \u2014 timeout after 7185s, last value: 'Failed'"
+    }
+  },
+  {
+    "pr": 1229,
+    "run_id": 36138426841,
+    "url": "https://github.com/osac-project/osac/actions/runs/36138426841",
+    "split": "holdout",
+    "label": "app_or_e2e",
+    "root_group": "network_delete_timeout",
+    "label_basis": "Verified observed failure from failed job log and artifact; causal root may require investigation",
+    "artifact": true,
+    "state": {
+      "failed_step": "Run E2E tests",
+      "job_error": "",
+      "pod_error": "",
+      "traceback": "junit.xml/test_virtual_network_lifecycle:1: | TimeoutError: subnet-s6hv5 Subnet deletion \u2014 timeout after 595s, last value: False"
+    }
+  },
+  {
+    "pr": 1064,
+    "run_id": 35702058837,
+    "url": "https://github.com/osac-project/osac/actions/runs/35702058837",
+    "split": "holdout",
+    "label": "app_or_e2e",
+    "root_group": "grpc_contract_assertion",
+    "label_basis": "Verified observed failure from failed job log and artifact; causal root may require investigation",
+    "artifact": true,
+    "state": {
+      "failed_step": "Run E2E tests",
+      "job_error": "",
+      "pod_error": "",
+      "traceback": "junit.xml/test_public_networking_update_is_unimplemented[VirtualNetworks]:1: E       AssertionError: Expected gRPC Unimplemented, got: Error invoking method \"osac.public.v1.VirtualNetworks/Update\": service \"osac.public.v1.VirtualNetworks\" does not include a method named \"Update\"\njunit.xml/test_public_networking_update_is_unimplemented[Subnets]:1: E       AssertionError: Expected gRPC Unimplemented, got: Error invoking method \"osac.public.v1.Subnets/Update\": service \"osac.public.v1.Subnets\" does not include a method named \"Update\""
+    }
+  },
+  {
+    "pr": 1066,
+    "run_id": 35901758870,
+    "url": "https://github.com/osac-project/osac/actions/runs/35901758870",
+    "split": "development",
+    "label": "app_or_e2e",
+    "root_group": "metering_missing",
+    "label_basis": "Verified observed failure from failed job log and artifact; causal root may require investigation",
+    "artifact": true,
+    "state": {
+      "failed_step": "Run E2E tests",
+      "job_error": "",
+      "pod_error": "",
+      "traceback": "junit.xml/test_cluster_create:1: E       TimeoutError: metering event type=osac.resource.updated.v1 resource_id=[UUID] \u2014 timeout after 118s, last value: False"
+    }
+  },
+  {
+    "pr": 1269,
+    "run_id": 36361314336,
+    "url": "https://github.com/osac-project/osac/actions/runs/36361314336",
+    "split": "holdout",
+    "label": "build_dependency",
+    "root_group": "ovn_module_path",
+    "label_basis": "Verified observed failure from failed job log and artifact; causal root may require investigation",
+    "artifact": true,
+    "state": {
+      "failed_step": "Build and load component images",
+      "job_error": "job.log:800: go: github.com/ovn-org/ovn-kubernetes/go-controller@v0.0.0-20260924124204-1f4a2c434733: parsing go.mod:\njob.log:801: module declares its path as: github.com/ovn-kubernetes/ovn-kubernetes/go-controller\njob.log:802: but was required as: github.com/ovn-org/ovn-kubernetes/go-controller",
+      "pod_error": "",
+      "traceback": ""
+    }
+  },
+  {
+    "pr": 865,
+    "run_id": 36305875896,
+    "url": "https://github.com/osac-project/osac/actions/runs/36305875896",
+    "split": "holdout",
+    "label": "build_compile",
+    "root_group": "go_undefined_fmt",
+    "label_basis": "Verified observed failure from failed job log and artifact; causal root may require investigation",
+    "artifact": true,
+    "state": {
+      "failed_step": "Build and load component images",
+      "job_error": "job.log:823: internal/controllers/securitygroup/securitygroup_reconciler_function.go:425:16: undefined: fmt\njob.log:824: Error: building at STEP \"RUN set -e;   version=\"${VERSION}\";   if [[ -z \"${version}\" ]]; then     version=$(git describe --tags --always 2>/dev/null || echo \"dev\");   fi;   gcflags=\"\";   ldflags=\"-X github.com/osac-project/osac/fulfillment-service/internal/version.id=${version}\";   if [[ \"${DEBUG}\" == \"true\" ]]; then     gcflags=\"all=-N -l\";   fi;   go build -gcflags=\"${gcflags}\" -ldflags=\"${ldflags}\" ./cmd/fulfillment-service;   go build -gcflags=\"${gcflags}\" -ldflags=\"${ldflags}\" ./cmd/osac\": ",
+      "pod_error": "",
+      "traceback": ""
+    }
+  },
+  {
+    "pr": 943,
+    "run_id": 36305831649,
+    "url": "https://github.com/osac-project/osac/actions/runs/36305831649",
+    "split": "holdout",
+    "label": "build_dependency",
+    "root_group": "botocore_conflict",
+    "label_basis": "Verified observed failure from failed job log and artifact; causal root may require investigation",
+    "artifact": true,
+    "state": {
+      "failed_step": "Build and load component images",
+      "job_error": "job.log:1922: ERROR: Cannot install -r /tmp/src/requirements.txt (line 2), -r /tmp/src/requirements.txt (line 6), botocore==1.43.56 and botocore>=1.31.0 because these package versions have conflicting dependencies.\njob.log:1934: ERROR: ResolutionImpossible: for help visit [URL]\njob.log:1938: Error: building at STEP \"RUN /output/scripts/assemble\": while running runtime: exit status 1",
+      "pod_error": "",
+      "traceback": ""
+    }
+  },
+  {
+    "pr": 1018,
+    "run_id": 36305795881,
+    "url": "https://github.com/osac-project/osac/actions/runs/36305795881",
+    "split": "holdout",
+    "label": "build_dependency",
+    "root_group": "stevedore_conflict",
+    "label_basis": "Verified observed failure from failed job log and artifact; causal root may require investigation",
+    "artifact": true,
+    "state": {
+      "failed_step": "Build and load component images",
+      "job_error": "job.log:1930: ERROR: Cannot install -r /tmp/src/requirements.txt (line 44), -r /tmp/src/requirements.txt (line 50), -r /tmp/src/requirements.txt (line 62) and stevedore==5.7.0 because these package versions have conflicting dependencies.\njob.log:1942: ERROR: ResolutionImpossible: for help visit [URL]\njob.log:1946: Error: building at STEP \"RUN /output/scripts/assemble\": while running runtime: exit status 1",
+      "pod_error": "",
+      "traceback": ""
+    }
+  },
+  {
+    "pr": 1125,
+    "run_id": 36305772180,
+    "url": "https://github.com/osac-project/osac/actions/runs/36305772180",
+    "split": "development",
+    "label": "build_compile",
+    "root_group": "typescript_errors",
+    "label_basis": "Verified observed failure from failed job log and artifact; causal root may require investigation",
+    "artifact": true,
+    "state": {
+      "failed_step": "Build and load component images",
+      "job_error": "job.log:2690: ../../libs/ui-components/src/api/v1/baremetal-instance.ts(24,28): error TS2339: Property 'items' does not exist on type 'Message<string>'.\njob.log:2691: ../../libs/ui-components/src/api/v1/baremetal-instance.ts(34,28): error TS2339: Property 'object' does not exist on type 'Message<string>'.\njob.log:2696: ../../libs/ui-components/src/api/v1/cluster-catalog-item.ts(12,28): error TS2339: Property 'items' does not exist on type 'Message<string>'.",
+      "pod_error": "",
+      "traceback": ""
+    }
+  },
+  {
+    "pr": 1126,
+    "run_id": 36305767053,
+    "url": "https://github.com/osac-project/osac/actions/runs/36305767053",
+    "split": "holdout",
+    "label": "build_dependency",
+    "root_group": "novnc_export",
+    "label_basis": "Verified observed failure from failed job log and artifact; causal root may require investigation",
+    "artifact": true,
+    "state": {
+      "failed_step": "Build and load component images",
+      "job_error": "job.log:2713: \"./lib/rfb.js\" is not exported under the conditions [\"module\", \"browser\", \"production\", \"import\"] from package /app/libs/ui-components/node_modules/@novnc/novnc (see exports field in /app/libs/ui-components/node_modules/@novnc/novnc/package.json)\njob.log:2727: Error: building at STEP \"RUN pnpm --filter @osac/app-frontend run build\": while running runtime: exit status 1",
+      "pod_error": "",
+      "traceback": ""
+    }
+  },
+  {
+    "pr": 1093,
+    "run_id": 35757502813,
+    "url": "https://github.com/osac-project/osac/actions/runs/35757502813",
+    "split": "holdout",
+    "label": "source_checkout",
+    "root_group": "missing_osac_ui_context",
+    "label_basis": "Verified observed failure from failed job log and artifact; causal root may require investigation",
+    "artifact": true,
+    "state": {
+      "failed_step": "Build and load component images",
+      "job_error": "job.log:3993: Error: context must be a directory: \"/home/github-runner/action-runners/runner-2/_work/_temp/component-7-src/osac-ui\"",
+      "pod_error": "",
+      "traceback": ""
+    }
+  },
+  {
+    "pr": 1102,
+    "run_id": 35411079111,
+    "url": "https://github.com/osac-project/osac/actions/runs/35411079111",
+    "split": "holdout",
+    "label": "source_checkout",
+    "root_group": "missing_git_ref",
+    "label_basis": "Verified observed failure from failed job log and artifact; causal root may require investigation",
+    "artifact": false,
+    "state": {
+      "failed_step": "Build and load component images",
+      "job_error": "job.log:865: fatal: couldn't find remote ref remove-redundant-publish-charts-jobs",
+      "pod_error": "",
+      "traceback": ""
+    }
+  },
+  {
+    "pr": 836,
+    "run_id": 35602675588,
+    "url": "https://github.com/osac-project/osac/actions/runs/35602675588",
+    "split": "holdout",
+    "label": "source_checkout",
+    "root_group": "missing_osac_ui_context",
+    "label_basis": "Verified observed failure from failed job log and artifact; causal root may require investigation",
+    "artifact": true,
+    "state": {
+      "failed_step": "Build and load component images",
+      "job_error": "job.log:4090: Error: context must be a directory: \"/home/github-runner/action-runners/runner-4/_work/_temp/component-7-src/osac-ui\"",
+      "pod_error": "",
+      "traceback": ""
+    }
+  },
+  {
+    "pr": 1166,
+    "run_id": 36188200390,
+    "url": "https://github.com/osac-project/osac/actions/runs/36188200390",
+    "split": "holdout",
+    "label": "app_startup",
+    "root_group": "duplicate_migration_117",
+    "label_basis": "grpc-server pod log: duplicate migration file 117; install timeout and UI crash are downstream",
+    "artifact": true,
+    "state": {
+      "failed_step": "Install OSAC",
+      "job_error": "job.log:3461: Error: context deadline exceeded",
+      "pod_error": "pod-fulfillment-grpc-server-578695d799-mz5b8-grpc-server-previous.log:13: failed to init driver with path migrations: duplicate migration file: 117_remove_network_class_is_default.up.sql\npod-osac-ui-fff79fd65-l27wb-osac-ui-previous.log:2: time=\"2026-09-25T21:52:51Z\" level=fatal msg=\"Failed to create Connect JSON proxy\" func=main.main file=\"/build/main.go:110\" error=\"grpc reflection: rpc error: code = Unavailable desc = no healthy upstream\"",
+      "traceback": ""
+    }
+  },
+  {
+    "pr": 1157,
+    "run_id": 36129345483,
+    "url": "https://github.com/osac-project/osac/actions/runs/36129345483",
+    "split": "development",
+    "label": "aap_policy",
+    "root_group": "aap_instance_group_policy",
+    "label_basis": "AAP bootstrap log: controller rejects instance_group pod_spec_override secret mount; install timeout is downstream",
+    "artifact": true,
+    "state": {
+      "failed_step": "Install OSAC",
+      "job_error": "job.log:4881: Error: failed post-install: 1 error occurred:\njob.log:4882: * timed out waiting for the condition",
+      "pod_error": "pod-osac-aap-bootstrap-5pz2v-bootstrap.log:221: [ERROR]: Task failed: Module failed: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\npod-osac-aap-bootstrap-5pz2v-bootstrap.log:229: fatal: [localhost]: FAILED! => {\"ansible_job_id\": \"j242279244747.246\", \"attempts\": 1, \"changed\": false, \"finished\": true, \"msg\": \"Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\", \"results_file\": \"/runner/.ansible_async/j242279244747.246\", \"started\": true, \"stderr\": \"\", \"stderr_lines\": [], \"stdout\": \"\", \"stdout_lines\": []}",
+      "traceback": ""
+    }
+  },
+  {
+    "pr": 1092,
+    "run_id": 36110464676,
+    "url": "https://github.com/osac-project/osac/actions/runs/36110464676",
+    "split": "development",
+    "label": "aap_policy",
+    "root_group": "aap_instance_group_policy",
+    "label_basis": "AAP bootstrap log: controller rejects instance_group pod_spec_override secret mount; install timeout is downstream",
+    "artifact": true,
+    "state": {
+      "failed_step": "Install OSAC",
+      "job_error": "job.log:3398: Error: failed post-install: 1 error occurred:\njob.log:3399: * timed out waiting for the condition",
+      "pod_error": "pod-osac-aap-bootstrap-58kwl-bootstrap.log:221: [ERROR]: Task failed: Module failed: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\npod-osac-aap-bootstrap-58kwl-bootstrap.log:229: fatal: [localhost]: FAILED! => {\"ansible_job_id\": \"j793772060346.246\", \"attempts\": 1, \"changed\": false, \"finished\": true, \"msg\": \"Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\", \"results_file\": \"/runner/.ansible_async/j793772060346.246\", \"started\": true, \"stderr\": \"\", \"stderr_lines\": [], \"stdout\": \"\", \"stdout_lines\": []}",
+      "traceback": ""
+    }
+  },
+  {
+    "pr": 1227,
+    "run_id": 36093374323,
+    "url": "https://github.com/osac-project/osac/actions/runs/36093374323",
+    "split": "development",
+    "label": "aap_policy",
+    "root_group": "aap_instance_group_policy",
+    "label_basis": "AAP bootstrap log: controller rejects instance_group pod_spec_override secret mount; install timeout is downstream",
+    "artifact": true,
+    "state": {
+      "failed_step": "Install OSAC",
+      "job_error": "job.log:4643: Error: failed post-install: 1 error occurred:\njob.log:4644: * timed out waiting for the condition",
+      "pod_error": "pod-osac-aap-bootstrap-9htzw-bootstrap.log:221: [ERROR]: Task failed: Module failed: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\npod-osac-aap-bootstrap-9htzw-bootstrap.log:229: fatal: [localhost]: FAILED! => {\"ansible_job_id\": \"j679259909637.246\", \"attempts\": 1, \"changed\": false, \"finished\": true, \"msg\": \"Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\", \"results_file\": \"/runner/.ansible_async/j679259909637.246\", \"started\": true, \"stderr\": \"\", \"stderr_lines\": [], \"stdout\": \"\", \"stdout_lines\": []}",
+      "traceback": ""
+    }
+  },
+  {
+    "pr": 1169,
+    "run_id": 36042626763,
+    "url": "https://github.com/osac-project/osac/actions/runs/36042626763",
+    "split": "development",
+    "label": "aap_policy",
+    "root_group": "aap_instance_group_policy",
+    "label_basis": "AAP bootstrap log: controller rejects instance_group pod_spec_override secret mount; install timeout is downstream",
+    "artifact": true,
+    "state": {
+      "failed_step": "Install OSAC",
+      "job_error": "job.log:4885: Error: failed post-install: 1 error occurred:\njob.log:4886: * timed out waiting for the condition",
+      "pod_error": "pod-osac-aap-bootstrap-2frlq-bootstrap.log:221: [ERROR]: Task failed: Module failed: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\npod-osac-aap-bootstrap-2frlq-bootstrap.log:229: fatal: [localhost]: FAILED! => {\"ansible_job_id\": \"j464877161415.246\", \"attempts\": 1, \"changed\": false, \"finished\": true, \"msg\": \"Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\", \"results_file\": \"/runner/.ansible_async/j464877161415.246\", \"started\": true, \"stderr\": \"\", \"stderr_lines\": [], \"stdout\": \"\", \"stdout_lines\": []}",
+      "traceback": ""
+    }
+  },
+  {
+    "pr": 1176,
+    "run_id": 36020912491,
+    "url": "https://github.com/osac-project/osac/actions/runs/36020912491",
+    "split": "development",
+    "label": "aap_policy",
+    "root_group": "aap_instance_group_policy",
+    "label_basis": "AAP bootstrap log: controller rejects instance_group pod_spec_override secret mount; install timeout is downstream",
+    "artifact": true,
+    "state": {
+      "failed_step": "Install OSAC",
+      "job_error": "job.log:4756: Error: failed post-install: 1 error occurred:\njob.log:4757: * timed out waiting for the condition",
+      "pod_error": "pod-osac-aap-bootstrap-5k5sq-bootstrap.log:221: [ERROR]: Task failed: Module failed: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\npod-osac-aap-bootstrap-5k5sq-bootstrap.log:229: fatal: [localhost]: FAILED! => {\"ansible_job_id\": \"j954846019016.246\", \"attempts\": 1, \"changed\": false, \"finished\": true, \"msg\": \"Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\", \"results_file\": \"/runner/.ansible_async/j954846019016.246\", \"started\": true, \"stderr\": \"\", \"stderr_lines\": [], \"stdout\": \"\", \"stdout_lines\": []}",
+      "traceback": ""
+    }
+  },
+  {
+    "pr": 1240,
+    "run_id": 36208878598,
+    "url": "https://github.com/osac-project/osac/actions/runs/36208878598",
+    "split": "holdout",
+    "label": "deployment_config",
+    "root_group": "controller_auth_endpoint",
+    "label_basis": "Verified observed failure from failed job log and artifact; causal root may require investigation",
+    "artifact": true,
+    "state": {
+      "failed_step": "Install OSAC",
+      "job_error": "job.log:3464: Error: context deadline exceeded",
+      "pod_error": "pod-fulfillment-controller.log: Failed to send token form; endpoint empty; unsupported protocol scheme",
+      "traceback": ""
+    }
+  },
+  {
+    "pr": 1233,
+    "run_id": 36177191564,
+    "url": "https://github.com/osac-project/osac/actions/runs/36177191564",
+    "split": "holdout",
+    "label": "unknown",
+    "root_group": "operator_install_timeout",
+    "label_basis": "Install infrastructure operators step ended in post-install timeout; artifact has no direct upstream cause, so abstain on cause",
+    "artifact": true,
+    "state": {
+      "failed_step": "Install infrastructure operators",
+      "job_error": "job.log:4676: Error: failed post-install: 1 error occurred:",
+      "pod_error": "",
+      "traceback": ""
+    }
+  },
+  {
+    "pr": 1140,
+    "run_id": 36414291926,
+    "url": "https://github.com/osac-project/osac/actions/runs/36414291926",
+    "split": "development",
+    "label": "ci_environment",
+    "root_group": "fork_authorization",
+    "label_basis": "Authorize fork PR step: fork blocked pending /ok-to-test; later KUBECONFIG artifact-gather error is downstream",
+    "artifact": false,
+    "state": {
+      "failed_step": "Authorize fork PR",
+      "job_error": "job.log:391: ##[error]Fork PR blocked: 'jeff-phillips-18' is not an osac-project org member.\njob.log:392: ##[error]An org member can approve this PR for testing by commenting /ok-to-test",
+      "pod_error": "",
+      "traceback": ""
+    }
+  },
+  {
+    "pr": 1225,
+    "run_id": 36057587469,
+    "url": "https://github.com/osac-project/osac/actions/runs/36057587469",
+    "split": "development",
+    "label": "ci_environment",
+    "root_group": "fork_authorization",
+    "label_basis": "Authorize fork PR step: fork blocked pending /ok-to-test; later KUBECONFIG artifact-gather error is downstream",
+    "artifact": false,
+    "state": {
+      "failed_step": "Authorize fork PR",
+      "job_error": "job.log:391: ##[error]Fork PR blocked: 'jeff-phillips-18' is not an osac-project org member.\njob.log:392: ##[error]An org member can approve this PR for testing by commenting /ok-to-test",
+      "pod_error": "",
+      "traceback": ""
+    }
+  }
+]
