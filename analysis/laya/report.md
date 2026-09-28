@@ -1,6 +1,6 @@
 # OSAC-5641: Laya routing evaluation
 
-Observed 2026-09-28 against the `english` model of the internal Laya server. This is a replay of historical failed GitHub Actions runs, followed by a local invocation of the production shadow helper on the held-out cases. It is **not** a measurement from a merged workflow. The exact request schema is pinned in [`schema.json`](schema.json); canonical failure signals, labels, root groups, predictions, and timings are committed beside this report. Raw logs and ZIPs remain outside the repository.
+Observed 2026-09-28 against the `english` model of the internal Laya server using schema `osac-laya-stage-v2`. This is a replay of historical failed GitHub Actions runs, followed by a local invocation of the production shadow helper on the held-out cases. It is **not** a measurement from a merged workflow. The exact request schema is pinned in [`schema.json`](schema.json); canonical failure signals, labels, root groups, predictions, and timings are committed beside this report. Raw logs and ZIPs remain outside the repository.
 
 ## Corpus and extraction
 
@@ -15,9 +15,9 @@ The same `.github/scripts/laya-shadow.py` extractor produced the four bounded fi
 | Global nine-choice, failed step and job error | 8/37 | not run | — |
 | Global nine-choice, four fields | 28/37 | 5/22 | 22 |
 | Global nine-choice, compact fields | 28/37 | not run | — |
-| Failed-step route, four-choice Laya question for build/install | **34/37** | **17/22** | **11** |
+| Failed-step route, four-choice build/five-choice install Laya question | **35/37** | **17/22** | **11** |
 
-The selected stage route uses the failed step directly for E2E and fork authorization; these decisions have no Laya score. On the 11 held-out build/install cases that actually called Laya, **6/11** routes were correct. Thus the 17/22 combined number measures an extractor and routing policy, not Laya's independent diagnostic ability. The fixed descriptions also encode much of the failure class, so even correct Laya answers do not establish independent root-cause discovery. Development AAP routing was 20/20 but all 20 are duplicates of one root and their Laya top probabilities were 0.332–0.387.
+The selected stage route uses the failed step directly for E2E and fork authorization; these decisions have no Laya score. On the 11 held-out build/install cases that actually called Laya, **6/11** routes were correct. Thus the 17/22 combined number measures an extractor and routing policy, not Laya's independent diagnostic ability. The fixed descriptions also encode much of the failure class, so even correct Laya answers do not establish independent root-cause discovery. Development AAP routing was 20/20 but all 20 are duplicates of one root and their Laya top probabilities were 0.339–0.393. Schema v2 added `source_checkout` to the install question after the [PR #1072](https://github.com/osac-project/osac/actions/runs/35996210946) AAP project checkout failure exposed a missing answer choice. That case now routes correctly at 0.444. Development accuracy increased by one, while holdout accuracy did not change. The evaluator now rejects a labeled case whose expected answer is unavailable for its selected stage before sending a request.
 
 ## Held-out confusion matrix for the selected route
 
@@ -51,7 +51,7 @@ Wrong routes are [PR #1269](https://github.com/osac-project/osac/actions/runs/36
 
 ## Runtime and candidate savings
 
-The 11 sequential held-out `/predict` calls made through the production helper took median **0.414 s**, nearest-rank p95 **0.601 s**, maximum **0.601 s**. Three `/predict/batch` requests for the held-out stage route took median **1.40 s**, maximum **2.00 s**. These are small local replay samples, not production latency measurements. Laya failure, timeout, malformed response, or missing evidence leaves the Vertex path unchanged. The workflow uploads a separate shadow artifact with route, model, score, runner-up, elapsed time, token count, and source references, and adds the same metadata to the structured diagnosis JSON when Vertex succeeds. It does not alter the comment or status.
+The 11 sequential held-out `/predict` calls made through the production helper took median **0.412 s**, nearest-rank p95 **0.667 s**, maximum **0.667 s**. Three `/predict/batch` requests for the held-out stage route took median **1.70 s**, maximum **1.92 s**. These are small local replay samples, not production latency measurements. Laya failure, timeout, malformed response, or missing evidence leaves the Vertex path unchanged. The workflow uploads a separate shadow artifact with route, model, score, runner-up, elapsed time, token count, and source references, and adds the same metadata to the structured diagnosis JSON when Vertex succeeds. It does not alter the comment or status.
 
 Thirty of 59 runs repeat one of seven observed root groups after that group's first occurrence. **30/59 (51%)** is only an upper bound on possible duplicate suppression under perfect signature detection. No signature is approved or enabled, and the shadow code never bypasses Vertex: observed and projected Vertex-call reduction is **0%**. No held-out Laya subtype prediction reached the candidate 0.90 threshold; the highest was 0.837.
 

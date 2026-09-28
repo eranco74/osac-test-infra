@@ -1,5 +1,5 @@
 {
-  "version": "osac-laya-stage-v1",
+  "version": "osac-laya-stage-v2",
   "model": "english",
   "questions": {
     "global": {
@@ -37,6 +37,7 @@
         "instructions": "Classify the direct install failure. AAP instance_group API rejection is aap_policy even if Kubernetes secrets appear in the message. Use unknown for a generic timeout without direct evidence.",
         "criteria": {
           "aap_policy": "AAP controller rejects instance_group creation or pod_spec_override policy, even if its error mentions Kubernetes secrets.",
+          "source_checkout": "Git or AAP project source checkout/fetch fails, a requested ref is absent, or a required source/build context directory is missing.",
           "deployment_config": "Kubernetes resource, operator, or controller configuration prevents installation or readiness; includes missing secret, bad auth endpoint, or operator timeout.",
           "app_startup": "Deployed application process fails to start due to an application error, such as duplicate database migration.",
           "unknown": "Only an uninformative symptom is shown and no direct failing component can be determined."

@@ -1,6 +1,7 @@
 {
   "arm": "direct",
-  "schema_version": "osac-laya-stage-v1",
+  "schema_version": "osac-laya-stage-v2",
+  "extractor_version": "osac-laya-evidence-v1",
   "predictions": [
     {
       "pr": 1279,
@@ -409,7 +410,7 @@
         1217,
         1211
       ],
-      "seconds": 2.591
+      "seconds": 2.787
     },
     {
       "stage": "global",
@@ -420,7 +421,7 @@
         1249,
         1229
       ],
-      "seconds": 2.477
+      "seconds": 3.029
     },
     {
       "stage": "global",
@@ -431,7 +432,7 @@
         943,
         1018
       ],
-      "seconds": 2.522
+      "seconds": 2.703
     },
     {
       "stage": "global",
@@ -442,7 +443,7 @@
         836,
         1166
       ],
-      "seconds": 2.714
+      "seconds": 2.751
     },
     {
       "stage": "global",
@@ -450,9 +451,8 @@
         1240,
         1233
       ],
-      "seconds": 1.09
+      "seconds": 1.071
     }
   ],
-  "split": "holdout",
-  "extractor_version": "osac-laya-evidence-v1"
+  "split": "holdout"
 }

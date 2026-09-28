@@ -1,6 +1,7 @@
 {
   "arm": "short",
-  "schema_version": "osac-laya-stage-v1",
+  "schema_version": "osac-laya-stage-v2",
+  "extractor_version": "osac-laya-evidence-v1",
   "predictions": [
     {
       "pr": 1221,
@@ -679,7 +680,7 @@
         1090,
         1120
       ],
-      "seconds": 2.69
+      "seconds": 2.431
     },
     {
       "stage": "global",
@@ -690,7 +691,7 @@
         1204,
         1143
       ],
-      "seconds": 2.363
+      "seconds": 2.634
     },
     {
       "stage": "global",
@@ -701,7 +702,7 @@
         1198,
         975
       ],
-      "seconds": 2.481
+      "seconds": 2.575
     },
     {
       "stage": "global",
@@ -712,7 +713,7 @@
         1049,
         1190
       ],
-      "seconds": 2.317
+      "seconds": 2.549
     },
     {
       "stage": "global",
@@ -723,7 +724,7 @@
         849,
         851
       ],
-      "seconds": 2.454
+      "seconds": 2.685
     },
     {
       "stage": "global",
@@ -734,7 +735,7 @@
         1066,
         1125
       ],
-      "seconds": 2.338
+      "seconds": 2.68
     },
     {
       "stage": "global",
@@ -745,7 +746,7 @@
         1169,
         1176
       ],
-      "seconds": 2.507
+      "seconds": 2.686
     },
     {
       "stage": "global",
@@ -753,9 +754,8 @@
         1140,
         1225
       ],
-      "seconds": 0.989
+      "seconds": 1.076
     }
   ],
-  "split": "development",
-  "extractor_version": "osac-laya-evidence-v1"
+  "split": "development"
 }

@@ -47,7 +47,10 @@ python3 analysis/laya/reextract.py --raw-root /path/to/downloads --output /tmp/c
 Use `--cases /tmp/cases.json` on the evaluator to score that replay. The
 committed `cases.json` is the output of that step for this experiment. The
 extractor is `.github/scripts/laya-shadow.py`; each case records its extractor
-version. The exact question and model are pinned in `schema.json`.
+version. The exact question and model are pinned in `schema.json`. Schema v2
+includes source checkout failures in the install question; the evaluator
+checks that every reviewed label is available in its selected stage before
+calling Laya.
 
 The evaluator requests the `english` model and batches of at most five.
 It sends the exact four-field state in `cases.json`; `short` drops pod/JUnit

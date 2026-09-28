@@ -1,6 +1,7 @@
 {
   "arm": "stage",
-  "schema_version": "osac-laya-stage-v1",
+  "schema_version": "osac-laya-stage-v2",
+  "extractor_version": "osac-laya-evidence-v1",
   "predictions": [
     {
       "pr": 1279,
@@ -186,40 +187,43 @@
     {
       "pr": 1166,
       "choice": "app_startup",
-      "score": 0.3694,
+      "score": 0.3358,
       "probabilities": {
-        "aap_policy": 0.1905,
-        "deployment_config": 0.2132,
-        "app_startup": 0.3694,
-        "unknown": 0.2269
+        "aap_policy": 0.1672,
+        "source_checkout": 0.0884,
+        "deployment_config": 0.1867,
+        "app_startup": 0.3358,
+        "unknown": 0.222
       },
-      "tokens": 250,
+      "tokens": 284,
       "method": "laya"
     },
     {
       "pr": 1240,
       "choice": "deployment_config",
-      "score": 0.293,
+      "score": 0.2895,
       "probabilities": {
-        "aap_policy": 0.2464,
-        "deployment_config": 0.293,
-        "app_startup": 0.1862,
-        "unknown": 0.2744
+        "aap_policy": 0.2061,
+        "source_checkout": 0.1078,
+        "deployment_config": 0.2895,
+        "app_startup": 0.1263,
+        "unknown": 0.2704
       },
-      "tokens": 243,
+      "tokens": 277,
       "method": "laya"
     },
     {
       "pr": 1233,
       "choice": "unknown",
-      "score": 0.3572,
+      "score": 0.3604,
       "probabilities": {
-        "aap_policy": 0.2074,
-        "deployment_config": 0.1635,
-        "app_startup": 0.2718,
-        "unknown": 0.3572
+        "aap_policy": 0.1571,
+        "source_checkout": 0.0766,
+        "deployment_config": 0.17,
+        "app_startup": 0.2359,
+        "unknown": 0.3604
       },
-      "tokens": 190,
+      "tokens": 224,
       "method": "laya"
     }
   ],
@@ -233,7 +237,7 @@
         1018,
         1126
       ],
-      "seconds": 1.995
+      "seconds": 1.919
     },
     {
       "stage": "build",
@@ -242,7 +246,7 @@
         1102,
         836
       ],
-      "seconds": 1.158
+      "seconds": 1.105
     },
     {
       "stage": "install",
@@ -251,9 +255,8 @@
         1240,
         1233
       ],
-      "seconds": 1.402
+      "seconds": 1.703
     }
   ],
-  "split": "holdout",
-  "extractor_version": "osac-laya-evidence-v1"
+  "split": "holdout"
 }

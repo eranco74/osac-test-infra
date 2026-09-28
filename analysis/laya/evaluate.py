@@ -56,9 +56,19 @@ def predict_batch(
 
 
 def evaluate(cases: list[dict[str, Any]], arm: str, endpoint: str) -> dict[str, Any]:
+    versions = {case.get("extractor_version") for case in cases}
+    if len(versions) != 1 or None in versions:
+        raise ValueError("Cases must share one extractor version")
+
     groups: dict[str, list[tuple[dict[str, Any], dict[str, str]]]] = {}
     for case in cases:
         stage = CLASSIFY_STAGE(case["state"]["failed_step"]) if arm == "stage" else "global"
+        if arm == "stage" and stage in SCHEMA["direct_step_routes"]:
+            allowed = {SCHEMA["direct_step_routes"][stage]}
+        else:
+            allowed = SCHEMA["questions"][stage]["failure_domain"]["criteria"]
+        if case["label"] not in allowed:
+            raise ValueError(f"PR #{case['pr']}: label {case['label']} unavailable for {stage} route")
         groups.setdefault(stage, []).append((case, state_for_arm(case["state"], arm)))
 
     predictions: list[dict[str, Any]] = []
@@ -89,9 +99,6 @@ def evaluate(cases: list[dict[str, Any]], arm: str, endpoint: str) -> dict[str, 
                     }
                 )
             print(f"{stage}: {offset + len(batch)}/{len(items)} in {elapsed:.2f}s", flush=True)
-    versions = {case.get("extractor_version") for case in cases}
-    if len(versions) != 1 or None in versions:
-        raise ValueError("Cases must share one extractor version")
     return {
         "arm": arm,
         "schema_version": SCHEMA["version"],
