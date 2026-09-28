@@ -31,6 +31,9 @@ cannot estimate production prevalence or future error rates. The holdout
 contains no AAP policy case because all 20 observed AAP rejections share one
 root signature in development.
 
+The [human review sheet](review-sheet.md) links every source run by root group
+and leaves all review decisions pending.
+
 ## Repeat the Laya calls
 
 Given local raw downloads with `<PR>/job.log` or
