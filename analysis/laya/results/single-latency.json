@@ -2,111 +2,122 @@
   {
     "pr": 1269,
     "stage": "build",
-    "seconds": 0.538,
-    "choice": "build_dependency",
-    "score": 0.4655,
-    "tokens": 205,
+    "seconds": 0.404,
+    "choice": "build_compile",
+    "score": 0.4487,
+    "tokens": 156,
     "schema_version": "osac-laya-stage-v1",
-    "model": "english"
+    "model": "english",
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 865,
     "stage": "build",
-    "seconds": 0.481,
+    "seconds": 0.418,
     "choice": "build_compile",
-    "score": 0.4152,
-    "tokens": 180,
+    "score": 0.8362,
+    "tokens": 157,
     "schema_version": "osac-laya-stage-v1",
-    "model": "english"
+    "model": "english",
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 943,
     "stage": "build",
-    "seconds": 0.604,
+    "seconds": 0.41,
     "choice": "build_dependency",
-    "score": 0.5945,
-    "tokens": 236,
+    "score": 0.811,
+    "tokens": 157,
     "schema_version": "osac-laya-stage-v1",
-    "model": "english"
+    "model": "english",
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1018,
     "stage": "build",
-    "seconds": 0.582,
+    "seconds": 0.385,
     "choice": "build_dependency",
-    "score": 0.4596,
-    "tokens": 242,
+    "score": 0.8369,
+    "tokens": 156,
     "schema_version": "osac-laya-stage-v1",
-    "model": "english"
+    "model": "english",
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1126,
     "stage": "build",
-    "seconds": 0.621,
-    "choice": "build_compile",
-    "score": 0.3801,
-    "tokens": 230,
+    "seconds": 0.377,
+    "choice": "unknown",
+    "score": 0.3278,
+    "tokens": 157,
     "schema_version": "osac-laya-stage-v1",
-    "model": "english"
+    "model": "english",
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1093,
     "stage": "build",
-    "seconds": 0.492,
+    "seconds": 0.405,
     "choice": "unknown",
-    "score": 0.3758,
-    "tokens": 193,
+    "score": 0.4211,
+    "tokens": 156,
     "schema_version": "osac-laya-stage-v1",
-    "model": "english"
+    "model": "english",
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1102,
     "stage": "build",
-    "seconds": 0.447,
-    "choice": "source_checkout",
-    "score": 0.3376,
-    "tokens": 171,
+    "seconds": 0.415,
+    "choice": "unknown",
+    "score": 0.3841,
+    "tokens": 156,
     "schema_version": "osac-laya-stage-v1",
-    "model": "english"
+    "model": "english",
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 836,
     "stage": "build",
-    "seconds": 0.496,
+    "seconds": 0.414,
     "choice": "unknown",
-    "score": 0.3696,
-    "tokens": 193,
+    "score": 0.4175,
+    "tokens": 156,
     "schema_version": "osac-laya-stage-v1",
-    "model": "english"
+    "model": "english",
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1166,
     "stage": "install",
-    "seconds": 0.699,
-    "choice": "deployment_config",
-    "score": 0.2931,
-    "tokens": 313,
+    "seconds": 0.575,
+    "choice": "app_startup",
+    "score": 0.3694,
+    "tokens": 250,
     "schema_version": "osac-laya-stage-v1",
-    "model": "english"
+    "model": "english",
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1240,
     "stage": "install",
-    "seconds": 0.722,
-    "choice": "app_startup",
-    "score": 0.2793,
-    "tokens": 312,
+    "seconds": 0.601,
+    "choice": "deployment_config",
+    "score": 0.293,
+    "tokens": 243,
     "schema_version": "osac-laya-stage-v1",
-    "model": "english"
+    "model": "english",
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1233,
     "stage": "install",
-    "seconds": 0.505,
+    "seconds": 0.442,
     "choice": "unknown",
-    "score": 0.3155,
-    "tokens": 197,
+    "score": 0.3572,
+    "tokens": 190,
     "schema_version": "osac-laya-stage-v1",
-    "model": "english"
+    "model": "english",
+    "extractor_version": "osac-laya-evidence-v1"
   }
 ]

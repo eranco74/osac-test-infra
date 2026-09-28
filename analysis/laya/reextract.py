@@ -10,7 +10,6 @@ from __future__ import annotations
 import argparse
 import importlib.util
 import json
-import re
 import tempfile
 import zipfile
 from pathlib import Path
@@ -25,20 +24,7 @@ def load_extractor(repo: Path) -> ModuleType:
     return module
 
 
-def relevant(name: str) -> bool:
-    parts = Path(name).parts
-    if len(parts) == 1:
-        base = parts[0]
-        return base in {"junit.xml", "events.txt", "pods-describe.txt"} or (
-            base.startswith(("pod-osac-aap-bootstrap-", "pod-fulfillment-grpc-server-", "pod-fulfillment-controller-"))
-            and base.endswith(".log")
-        )
-    return (
-        len(parts) == 2 and parts[0] == "aap-jobs" and bool(re.fullmatch(r"project-update-\d+-failed\.txt", parts[1]))
-    )
-
-
-def copy_artifact(archive: Path, target: Path, max_bytes: int) -> bool:
+def copy_artifact(archive: Path, target: Path, extractor: ModuleType) -> bool:
     if not archive.is_file():
         return False
     with zipfile.ZipFile(archive) as source:
@@ -47,11 +33,11 @@ def copy_artifact(archive: Path, target: Path, max_bytes: int) -> bool:
         for member in source.infolist():
             name = member.filename
             if (
-                not relevant(name)
-                or member.file_size > max_bytes
+                not extractor.artifact_member_relevant(name)
+                or member.file_size > extractor.MAX_SOURCE_BYTES
                 or member.is_dir()
-                or copied_bytes + member.file_size > 8 * 1024 * 1024
-                or copied_files >= 300
+                or copied_bytes + member.file_size > extractor.MAX_ARTIFACT_BYTES
+                or copied_files >= extractor.MAX_ARTIFACT_FILES
             ):
                 continue
             path = target / name
@@ -89,12 +75,13 @@ def main() -> None:
             missing_logs += 1
         with tempfile.TemporaryDirectory() as directory:
             artifact_dir = Path(directory)
-            if not copy_artifact(source / "artifact.zip", artifact_dir, extractor.MAX_SOURCE_BYTES):
+            if not copy_artifact(source / "artifact.zip", artifact_dir, extractor):
                 missing_artifacts += 1
             evidence = extractor.extract_state(
                 artifact_dir, artifact_dir / "junit.xml", source / "job.log", case["state"]["failed_step"]
             )
             case["state"] = evidence["state"]
+            case["extractor_version"] = extractor.EXTRACTOR_VERSION
             case["evidence_available"] = evidence["evidence_available"]
             case["evidence_refs"] = evidence["evidence_refs"]
             if not evidence["evidence_available"]:

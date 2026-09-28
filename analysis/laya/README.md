@@ -2,9 +2,10 @@
 
 This is a retrospective replay of failed OSAC E2E GitHub Actions jobs. The
 shadow helper is also wired into the diagnostic workflow; it never skips
-Vertex. The inputs in `cases.json` are bounded, redacted excerpts produced by
-that same helper from failed job logs, JUnit reports, and diagnostic artifacts.
-Raw CI logs and artifact archives are not stored in this repository.
+Vertex. The inputs in `cases.json` are fixed, bounded descriptions of
+recognized failure signals produced by that same helper from failed job logs,
+JUnit reports, and diagnostic artifacts. Raw matching lines, CI logs, and
+artifact archives are not stored in this repository.
 
 ## Corpus and labels
 
@@ -34,7 +35,7 @@ root signature in development.
 
 Given local raw downloads with `<PR>/job.log` or
 `new_candidates/<run_id>/job.log` plus optional `artifact.zip`, recreate the
-sanitized states with the production extractor:
+canonical states with the production extractor:
 
 ```bash
 python3 analysis/laya/reextract.py --raw-root /path/to/downloads --output /tmp/cases.json
@@ -42,8 +43,8 @@ python3 analysis/laya/reextract.py --raw-root /path/to/downloads --output /tmp/c
 
 Use `--cases /tmp/cases.json` on the evaluator to score that replay. The
 committed `cases.json` is the output of that step for this experiment. The
-extractor is `.github/scripts/laya-shadow.py`; the exact question and model
-are pinned in `schema.json`.
+extractor is `.github/scripts/laya-shadow.py`; each case records its extractor
+version. The exact question and model are pinned in `schema.json`.
 
 The evaluator requests the `english` model and batches of at most five.
 It sends the exact four-field state in `cases.json`; `short` drops pod/JUnit
@@ -60,8 +61,8 @@ python3 analysis/laya/evaluate.py --split holdout --arm stage --output /tmp/laya
 
 The script prints a confusion matrix, per-class false positives/negatives and
 abstentions, wrong-route examples, and batch latency. `--endpoint` can point
-to another compatible Laya server. The requests contain internal diagnostic
-excerpts, so use only an approved server. Re-running may change predictions if
+to another compatible Laya server. The requests contain canonical diagnostic
+signals, so use only an approved server. Re-running may change predictions if
 the server checkpoint changes; the committed report records the observed run.
 
 ## Gate under evaluation

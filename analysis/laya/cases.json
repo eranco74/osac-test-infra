@@ -10,17 +10,16 @@
     "artifact": true,
     "state": {
       "failed_step": "Install OSAC",
-      "job_error": "job.log:3468: Error: failed post-install: 1 error occurred:\njob.log:3469: * timed out waiting for the condition",
-      "pod_error": "pod-osac-aap-bootstrap-8zvvs-bootstrap.log:221: [ERROR]: Task failed: Module failed: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\npod-osac-aap-bootstrap-8zvvs-bootstrap.log:229: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}",
+      "job_error": "job.log:3468: Install timed out",
+      "pod_error": "pod-osac-aap-bootstrap-8zvvs-bootstrap.log:221: AAP instance_group rejected pod_spec_override policy",
       "traceback": ""
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:3468",
-      "job.log:3469",
-      "pod-osac-aap-bootstrap-8zvvs-bootstrap.log:221",
-      "pod-osac-aap-bootstrap-8zvvs-bootstrap.log:229"
-    ]
+      "pod-osac-aap-bootstrap-8zvvs-bootstrap.log:221"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1214,
@@ -33,17 +32,16 @@
     "artifact": true,
     "state": {
       "failed_step": "Install OSAC",
-      "job_error": "job.log:3491: Error: failed post-install: 1 error occurred:\njob.log:3492: * timed out waiting for the condition",
-      "pod_error": "pod-osac-aap-bootstrap-brb77-bootstrap.log:221: [ERROR]: Task failed: Module failed: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\npod-osac-aap-bootstrap-brb77-bootstrap.log:229: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}",
+      "job_error": "job.log:3491: Install timed out",
+      "pod_error": "pod-osac-aap-bootstrap-brb77-bootstrap.log:221: AAP instance_group rejected pod_spec_override policy",
       "traceback": ""
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:3491",
-      "job.log:3492",
-      "pod-osac-aap-bootstrap-brb77-bootstrap.log:221",
-      "pod-osac-aap-bootstrap-brb77-bootstrap.log:229"
-    ]
+      "pod-osac-aap-bootstrap-brb77-bootstrap.log:221"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1215,
@@ -56,17 +54,16 @@
     "artifact": true,
     "state": {
       "failed_step": "Install OSAC",
-      "job_error": "job.log:3476: Error: failed post-install: 1 error occurred:\njob.log:3477: * timed out waiting for the condition",
-      "pod_error": "pod-osac-aap-bootstrap-7sc77-bootstrap.log:221: [ERROR]: Task failed: Module failed: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\npod-osac-aap-bootstrap-7sc77-bootstrap.log:229: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}",
+      "job_error": "job.log:3476: Install timed out",
+      "pod_error": "pod-osac-aap-bootstrap-7sc77-bootstrap.log:221: AAP instance_group rejected pod_spec_override policy",
       "traceback": ""
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:3476",
-      "job.log:3477",
-      "pod-osac-aap-bootstrap-7sc77-bootstrap.log:221",
-      "pod-osac-aap-bootstrap-7sc77-bootstrap.log:229"
-    ]
+      "pod-osac-aap-bootstrap-7sc77-bootstrap.log:221"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1090,
@@ -79,17 +76,16 @@
     "artifact": true,
     "state": {
       "failed_step": "Install OSAC",
-      "job_error": "job.log:4814: Error: failed post-install: 1 error occurred:\njob.log:4815: * timed out waiting for the condition",
-      "pod_error": "pod-osac-aap-bootstrap-4bdmp-bootstrap.log:221: [ERROR]: Task failed: Module failed: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\npod-osac-aap-bootstrap-4bdmp-bootstrap.log:229: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}",
+      "job_error": "job.log:4814: Install timed out",
+      "pod_error": "pod-osac-aap-bootstrap-4bdmp-bootstrap.log:221: AAP instance_group rejected pod_spec_override policy",
       "traceback": ""
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:4814",
-      "job.log:4815",
-      "pod-osac-aap-bootstrap-4bdmp-bootstrap.log:221",
-      "pod-osac-aap-bootstrap-4bdmp-bootstrap.log:229"
-    ]
+      "pod-osac-aap-bootstrap-4bdmp-bootstrap.log:221"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1120,
@@ -102,17 +98,16 @@
     "artifact": true,
     "state": {
       "failed_step": "Install OSAC",
-      "job_error": "job.log:3310: Error: failed post-install: 1 error occurred:\njob.log:3311: * timed out waiting for the condition",
-      "pod_error": "pod-osac-aap-bootstrap-7lbxh-bootstrap.log:221: [ERROR]: Task failed: Module failed: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\npod-osac-aap-bootstrap-7lbxh-bootstrap.log:229: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}",
+      "job_error": "job.log:3310: Install timed out",
+      "pod_error": "pod-osac-aap-bootstrap-7lbxh-bootstrap.log:221: AAP instance_group rejected pod_spec_override policy",
       "traceback": ""
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:3310",
-      "job.log:3311",
-      "pod-osac-aap-bootstrap-7lbxh-bootstrap.log:221",
-      "pod-osac-aap-bootstrap-7lbxh-bootstrap.log:229"
-    ]
+      "pod-osac-aap-bootstrap-7lbxh-bootstrap.log:221"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1199,
@@ -125,17 +120,16 @@
     "artifact": true,
     "state": {
       "failed_step": "Install OSAC",
-      "job_error": "job.log:3442: Error: failed post-install: 1 error occurred:\njob.log:3443: * timed out waiting for the condition",
-      "pod_error": "pod-osac-aap-bootstrap-4w7cg-bootstrap.log:221: [ERROR]: Task failed: Module failed: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\npod-osac-aap-bootstrap-4w7cg-bootstrap.log:229: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}",
+      "job_error": "job.log:3442: Install timed out",
+      "pod_error": "pod-osac-aap-bootstrap-4w7cg-bootstrap.log:221: AAP instance_group rejected pod_spec_override policy",
       "traceback": ""
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:3442",
-      "job.log:3443",
-      "pod-osac-aap-bootstrap-4w7cg-bootstrap.log:221",
-      "pod-osac-aap-bootstrap-4w7cg-bootstrap.log:229"
-    ]
+      "pod-osac-aap-bootstrap-4w7cg-bootstrap.log:221"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1202,
@@ -148,17 +142,16 @@
     "artifact": true,
     "state": {
       "failed_step": "Install OSAC",
-      "job_error": "job.log:3469: Error: failed post-install: 1 error occurred:\njob.log:3470: * timed out waiting for the condition",
-      "pod_error": "pod-osac-aap-bootstrap-4vcsh-bootstrap.log:221: [ERROR]: Task failed: Module failed: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\npod-osac-aap-bootstrap-4vcsh-bootstrap.log:229: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}",
+      "job_error": "job.log:3469: Install timed out",
+      "pod_error": "pod-osac-aap-bootstrap-4vcsh-bootstrap.log:221: AAP instance_group rejected pod_spec_override policy",
       "traceback": ""
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:3469",
-      "job.log:3470",
-      "pod-osac-aap-bootstrap-4vcsh-bootstrap.log:221",
-      "pod-osac-aap-bootstrap-4vcsh-bootstrap.log:229"
-    ]
+      "pod-osac-aap-bootstrap-4vcsh-bootstrap.log:221"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1152,
@@ -171,17 +164,16 @@
     "artifact": true,
     "state": {
       "failed_step": "Install OSAC",
-      "job_error": "job.log:3371: Error: failed post-install: 1 error occurred:\njob.log:3372: * timed out waiting for the condition",
-      "pod_error": "pod-osac-aap-bootstrap-4mbfh-bootstrap.log:221: [ERROR]: Task failed: Module failed: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\npod-osac-aap-bootstrap-4mbfh-bootstrap.log:229: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}",
+      "job_error": "job.log:3371: Install timed out",
+      "pod_error": "pod-osac-aap-bootstrap-4mbfh-bootstrap.log:221: AAP instance_group rejected pod_spec_override policy",
       "traceback": ""
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:3371",
-      "job.log:3372",
-      "pod-osac-aap-bootstrap-4mbfh-bootstrap.log:221",
-      "pod-osac-aap-bootstrap-4mbfh-bootstrap.log:229"
-    ]
+      "pod-osac-aap-bootstrap-4mbfh-bootstrap.log:221"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1204,
@@ -194,17 +186,16 @@
     "artifact": true,
     "state": {
       "failed_step": "Install OSAC",
-      "job_error": "job.log:4716: Error: failed post-install: 1 error occurred:\njob.log:4717: * timed out waiting for the condition",
-      "pod_error": "pod-osac-aap-bootstrap-6vqt2-bootstrap.log:221: [ERROR]: Task failed: Module failed: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\npod-osac-aap-bootstrap-6vqt2-bootstrap.log:229: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}",
+      "job_error": "job.log:4716: Install timed out",
+      "pod_error": "pod-osac-aap-bootstrap-6vqt2-bootstrap.log:221: AAP instance_group rejected pod_spec_override policy",
       "traceback": ""
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:4716",
-      "job.log:4717",
-      "pod-osac-aap-bootstrap-6vqt2-bootstrap.log:221",
-      "pod-osac-aap-bootstrap-6vqt2-bootstrap.log:229"
-    ]
+      "pod-osac-aap-bootstrap-6vqt2-bootstrap.log:221"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1143,
@@ -217,17 +208,17 @@
     "artifact": true,
     "state": {
       "failed_step": "Install OSAC",
-      "job_error": "job.log:3443: Error: failed post-install: 1 error occurred:\njob.log:3444: * timed out waiting for the condition",
-      "pod_error": "pod-osac-aap-bootstrap-65cdc-bootstrap.log:221: [ERROR]: Task failed: Module failed: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\npod-osac-aap-bootstrap-65cdc-bootstrap.log:229: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}",
+      "job_error": "job.log:3443: Install timed out",
+      "pod_error": "pod-osac-aap-bootstrap-65cdc-bootstrap.log:221: AAP instance_group rejected pod_spec_override policy\nevents.txt:266: Kubernetes FailedMount: non-existent secret key",
       "traceback": ""
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:3443",
-      "job.log:3444",
       "pod-osac-aap-bootstrap-65cdc-bootstrap.log:221",
-      "pod-osac-aap-bootstrap-65cdc-bootstrap.log:229"
-    ]
+      "events.txt:266"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1219,
@@ -240,17 +231,16 @@
     "artifact": true,
     "state": {
       "failed_step": "Install OSAC",
-      "job_error": "job.log:3457: Error: failed post-install: 1 error occurred:\njob.log:3458: * timed out waiting for the condition",
-      "pod_error": "pod-osac-aap-bootstrap-b7ftx-bootstrap.log:221: [ERROR]: Task failed: Module failed: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\npod-osac-aap-bootstrap-b7ftx-bootstrap.log:229: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}",
+      "job_error": "job.log:3457: Install timed out",
+      "pod_error": "pod-osac-aap-bootstrap-b7ftx-bootstrap.log:221: AAP instance_group rejected pod_spec_override policy",
       "traceback": ""
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:3457",
-      "job.log:3458",
-      "pod-osac-aap-bootstrap-b7ftx-bootstrap.log:221",
-      "pod-osac-aap-bootstrap-b7ftx-bootstrap.log:229"
-    ]
+      "pod-osac-aap-bootstrap-b7ftx-bootstrap.log:221"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1191,
@@ -263,17 +253,16 @@
     "artifact": true,
     "state": {
       "failed_step": "Install OSAC",
-      "job_error": "job.log:4734: Error: failed post-install: 1 error occurred:\njob.log:4735: * timed out waiting for the condition",
-      "pod_error": "pod-osac-aap-bootstrap-26knl-bootstrap.log:221: [ERROR]: Task failed: Module failed: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\npod-osac-aap-bootstrap-26knl-bootstrap.log:229: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}",
+      "job_error": "job.log:4734: Install timed out",
+      "pod_error": "pod-osac-aap-bootstrap-26knl-bootstrap.log:221: AAP instance_group rejected pod_spec_override policy",
       "traceback": ""
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:4734",
-      "job.log:4735",
-      "pod-osac-aap-bootstrap-26knl-bootstrap.log:221",
-      "pod-osac-aap-bootstrap-26knl-bootstrap.log:229"
-    ]
+      "pod-osac-aap-bootstrap-26knl-bootstrap.log:221"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 983,
@@ -286,17 +275,16 @@
     "artifact": true,
     "state": {
       "failed_step": "Install OSAC",
-      "job_error": "job.log:4797: Error: failed post-install: 1 error occurred:\njob.log:4798: * timed out waiting for the condition",
-      "pod_error": "pod-osac-aap-bootstrap-jvwfl-bootstrap.log:221: [ERROR]: Task failed: Module failed: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\npod-osac-aap-bootstrap-jvwfl-bootstrap.log:229: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}",
+      "job_error": "job.log:4797: Install timed out",
+      "pod_error": "pod-osac-aap-bootstrap-jvwfl-bootstrap.log:221: AAP instance_group rejected pod_spec_override policy",
       "traceback": ""
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:4797",
-      "job.log:4798",
-      "pod-osac-aap-bootstrap-jvwfl-bootstrap.log:221",
-      "pod-osac-aap-bootstrap-jvwfl-bootstrap.log:229"
-    ]
+      "pod-osac-aap-bootstrap-jvwfl-bootstrap.log:221"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1198,
@@ -309,17 +297,16 @@
     "artifact": true,
     "state": {
       "failed_step": "Install OSAC",
-      "job_error": "job.log:3411: Error: failed post-install: 1 error occurred:\njob.log:3412: * timed out waiting for the condition",
-      "pod_error": "pod-osac-aap-bootstrap-g28mc-bootstrap.log:221: [ERROR]: Task failed: Module failed: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\npod-osac-aap-bootstrap-g28mc-bootstrap.log:229: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}",
+      "job_error": "job.log:3411: Install timed out",
+      "pod_error": "pod-osac-aap-bootstrap-g28mc-bootstrap.log:221: AAP instance_group rejected pod_spec_override policy",
       "traceback": ""
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:3411",
-      "job.log:3412",
-      "pod-osac-aap-bootstrap-g28mc-bootstrap.log:221",
-      "pod-osac-aap-bootstrap-g28mc-bootstrap.log:229"
-    ]
+      "pod-osac-aap-bootstrap-g28mc-bootstrap.log:221"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 975,
@@ -332,15 +319,15 @@
     "artifact": true,
     "state": {
       "failed_step": "Build and load component images",
-      "job_error": "job.log:701: go: module ../bare-metal-fulfillment-operator listed in go.work file requires go >= 1.27.0, but go.work lists go 1.26.3; to update it:\njob.log:703: go: module . listed in go.work file requires go >= 1.27.0, but go.work lists go 1.26.3; to update it:",
+      "job_error": "job.log:701: Go module dependency resolution failed",
       "pod_error": "",
       "traceback": ""
     },
     "evidence_available": true,
     "evidence_refs": [
-      "job.log:701",
-      "job.log:703"
-    ]
+      "job.log:701"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1222,
@@ -353,15 +340,15 @@
     "artifact": false,
     "state": {
       "failed_step": "Authorize fork PR",
-      "job_error": "job.log:391: ##[error]Fork PR blocked: 'jeff-phillips-18' is not an osac-project org member.\njob.log:392: ##[error]An org member can approve this PR for testing by commenting /ok-to-test",
+      "job_error": "job.log:391: Fork PR blocked; /ok-to-test required",
       "pod_error": "",
       "traceback": ""
     },
     "evidence_available": true,
     "evidence_refs": [
-      "job.log:391",
-      "job.log:392"
-    ]
+      "job.log:391"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1072,
@@ -374,16 +361,16 @@
     "artifact": true,
     "state": {
       "failed_step": "Install OSAC",
-      "job_error": "job.log:4660: Error: failed post-install: 1 error occurred:\njob.log:4661: * timed out waiting for the condition",
-      "pod_error": "aap-jobs/project-update-1-failed.txt:5: Failed to checkout 0c3fbf98fb2a0f324048f79f62727954c44cb0f9; fatal: unable to read tree (0c3fbf98fb2a0f324048f79f62727954c44cb0f9)\\n",
+      "job_error": "job.log:4660: Install timed out",
+      "pod_error": "aap-jobs/project-update-1-failed.txt:5: AAP project update could not checkout Git source",
       "traceback": ""
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:4660",
-      "job.log:4661",
       "aap-jobs/project-update-1-failed.txt:5"
-    ]
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 987,
@@ -396,15 +383,16 @@
     "artifact": true,
     "state": {
       "failed_step": "Run E2E tests",
-      "job_error": "job.log:5288: E       TimeoutError: metering event type=osac.resource.deleted.v1 resource_id=[REDACTED_UUID] \u2014 timeout after 178s, last value: False",
+      "job_error": "job.log:5288: E2E test error",
       "pod_error": "",
-      "traceback": "junit.xml/test_short_lived_vm_metering:1: E       TimeoutError: metering event type=osac.resource.deleted.v1 resource_id=[REDACTED_UUID] \u2014 timeout after 178s, last value: False"
+      "traceback": "junit.xml:1: JUnit test failure"
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:5288",
-      "junit.xml/test_short_lived_vm_metering:1"
-    ]
+      "junit.xml:1"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1049,
@@ -417,15 +405,15 @@
     "artifact": false,
     "state": {
       "failed_step": "Authorize fork PR",
-      "job_error": "job.log:392: ##[error]Fork PR blocked: 'bkopilov' is not an osac-project org member.\njob.log:393: ##[error]An org member can approve this PR for testing by commenting /ok-to-test",
+      "job_error": "job.log:392: Fork PR blocked; /ok-to-test required",
       "pod_error": "",
       "traceback": ""
     },
     "evidence_available": true,
     "evidence_refs": [
-      "job.log:392",
-      "job.log:393"
-    ]
+      "job.log:392"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1190,
@@ -438,15 +426,17 @@
     "artifact": true,
     "state": {
       "failed_step": "Install OSAC",
-      "job_error": "job.log:3446: Error: context deadline exceeded",
-      "pod_error": "events.txt:294: 35m         Warning   FailedCreate            job/osac-copy-fulfillment-kafka-1                          Error creating: pods \"osac-copy-fulfillment-kafka-1-\" is forbidden: unable to validate against any security context constraint: [provider \"anyuid\": Forbidden: not usable by user or serviceaccount",
+      "job_error": "job.log:3446: Install timed out",
+      "pod_error": "events.txt:294: Kubernetes FailedCreate for Kafka copy job\nevents.txt:358: Kubernetes FailedMount: non-existent secret key",
       "traceback": ""
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:3446",
-      "events.txt:294"
-    ]
+      "events.txt:294",
+      "events.txt:358"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1134,
@@ -459,15 +449,15 @@
     "artifact": true,
     "state": {
       "failed_step": "Build and load component images",
-      "job_error": "job.log:4037: ../../libs/ui-components/src/api/v1/baremetal-instance.ts(24,28): error TS2339: Property 'items' does not exist on type 'Message<string>'.\njob.log:4038: ../../libs/ui-components/src/api/v1/baremetal-instance.ts(34,28): error TS2339: Property 'object' does not exist on type 'Message<string>'.",
+      "job_error": "job.log:4037: TypeScript compiler error",
       "pod_error": "",
       "traceback": ""
     },
     "evidence_available": true,
     "evidence_refs": [
-      "job.log:4037",
-      "job.log:4038"
-    ]
+      "job.log:4037"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 992,
@@ -480,15 +470,15 @@
     "artifact": true,
     "state": {
       "failed_step": "Build and load component images",
-      "job_error": "job.log:1922: ERROR: Cannot install -r /tmp/src/requirements.txt (line 33) and ansible-core==2.21.4 because these package versions have conflicting dependencies.\njob.log:1930: ERROR: ResolutionImpossible: for help visit [REDACTED_URL]",
+      "job_error": "job.log:1922: Python dependency resolution failed",
       "pod_error": "",
       "traceback": ""
     },
     "evidence_available": true,
     "evidence_refs": [
-      "job.log:1922",
-      "job.log:1930"
-    ]
+      "job.log:1922"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 858,
@@ -501,14 +491,15 @@
     "artifact": true,
     "state": {
       "failed_step": "Build and load component images",
-      "job_error": "job.log:725: Error: \"/usr/local/bin/osac\" could not be found on container 366e3c350f3e3819fb6d67d1fd71a382dca315e2a84fe3ed8013992eb80d9dc3: no such file or directory",
+      "job_error": "job.log:725: Build context missing",
       "pod_error": "",
       "traceback": ""
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:725"
-    ]
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 849,
@@ -521,8 +512,8 @@
     "artifact": true,
     "state": {
       "failed_step": "Install OSAC",
-      "job_error": "job.log:2743: Error: context deadline exceeded",
-      "pod_error": "pod-fulfillment-grpc-server-5fc886cdf-d8gbb-grpc-server-previous.log:13: failed to init driver with path migrations: duplicate migration file: 113_create_add_on_operators_tables.up.sql\nevents.txt:220: 39m         Warning   FailedMount             pod/fulfillment-event-publisher-fdbbb769d-qpsh2            MountVolume.SetUp failed for volume \"kafka\" : references non-existent secret key: brokers",
+      "job_error": "job.log:2743: Install timed out",
+      "pod_error": "pod-fulfillment-grpc-server-5fc886cdf-d8gbb-grpc-server-previous.log:13: gRPC startup failed: duplicate migration file\nevents.txt:220: Kubernetes FailedMount: non-existent secret key",
       "traceback": ""
     },
     "evidence_available": true,
@@ -530,7 +521,8 @@
       "job.log:2743",
       "pod-fulfillment-grpc-server-5fc886cdf-d8gbb-grpc-server-previous.log:13",
       "events.txt:220"
-    ]
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 851,
@@ -543,17 +535,16 @@
     "artifact": true,
     "state": {
       "failed_step": "Install OSAC",
-      "job_error": "job.log:4674: Error: failed post-install: 1 error occurred:\njob.log:4675: * timed out waiting for the condition",
-      "pod_error": "pod-osac-aap-bootstrap-8hd6m-bootstrap.log:221: [ERROR]: Task failed: Module failed: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\npod-osac-aap-bootstrap-8hd6m-bootstrap.log:229: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}",
+      "job_error": "job.log:4674: Install timed out",
+      "pod_error": "pod-osac-aap-bootstrap-8hd6m-bootstrap.log:221: AAP instance_group rejected pod_spec_override policy",
       "traceback": ""
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:4674",
-      "job.log:4675",
-      "pod-osac-aap-bootstrap-8hd6m-bootstrap.log:221",
-      "pod-osac-aap-bootstrap-8hd6m-bootstrap.log:229"
-    ]
+      "pod-osac-aap-bootstrap-8hd6m-bootstrap.log:221"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1279,
@@ -566,16 +557,16 @@
     "artifact": true,
     "state": {
       "failed_step": "Run E2E tests",
-      "job_error": "job.log:3704: stderr = 'ERROR:\\n  Code: Internal\\n  Message: failed to determine assignable tenants\\n'",
+      "job_error": "job.log:3704: E2E test error",
       "pod_error": "",
-      "traceback": "junit.xml/test_baremetal_instance_lifecycle:1: subprocess.CalledProcessError in test_baremetal_instance_lifecycle\njunit.xml/test_baremetal_instance_restart:1: subprocess.CalledProcessError in test_baremetal_instance_restart"
+      "traceback": "junit.xml:1: JUnit test failure"
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:3704",
-      "junit.xml/test_baremetal_instance_lifecycle:1",
-      "junit.xml/test_baremetal_instance_restart:1"
-    ]
+      "junit.xml:1"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1261,
@@ -588,16 +579,16 @@
     "artifact": true,
     "state": {
       "failed_step": "Run E2E tests",
-      "job_error": "job.log:5314: E       TimeoutError: order-nz6sx ClusterOrder Ready \u2014 timeout after 7185s, last value: 'Failed'\njob.log:5675: E       TimeoutError: virtualnetwork-xr2fn VirtualNetwork Ready \u2014 timeout after 295s, last value: ''",
+      "job_error": "job.log:5314: E2E test error",
       "pod_error": "",
-      "traceback": "junit.xml/test_cluster_create:1: E       TimeoutError: order-nz6sx ClusterOrder Ready \u2014 timeout after 7185s, last value: 'Failed'"
+      "traceback": "junit.xml:1: JUnit test failure"
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:5314",
-      "job.log:5675",
-      "junit.xml/test_cluster_create:1"
-    ]
+      "junit.xml:1"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1253,
@@ -610,16 +601,16 @@
     "artifact": true,
     "state": {
       "failed_step": "Run E2E tests",
-      "job_error": "job.log:5253: stderr = \"Error: failed to create bare metal instance: rpc error: code = FailedPrecondition desc = subnet '[REDACTED_UUID]' in spec.network_attachments[0] is not in READY state (current state: SUBNET_STATE_PENDING)\\n\"",
+      "job_error": "job.log:5253: E2E test error",
       "pod_error": "",
-      "traceback": "junit.xml/test_baremetal_instance_lifecycle:1: subprocess.CalledProcessError in test_baremetal_instance_lifecycle\njunit.xml/test_baremetal_instance_restart:1: subprocess.CalledProcessError in test_baremetal_instance_restart"
+      "traceback": "junit.xml:1: JUnit test failure"
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:5253",
-      "junit.xml/test_baremetal_instance_lifecycle:1",
-      "junit.xml/test_baremetal_instance_restart:1"
-    ]
+      "junit.xml:1"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1217,
@@ -632,16 +623,16 @@
     "artifact": true,
     "state": {
       "failed_step": "Run E2E tests",
-      "job_error": "job.log:3761: stderr = \"Error: failed to create bare metal instance: rpc error: code = FailedPrecondition desc = subnet '[REDACTED_UUID]' in spec.network_attachments[0] is not in READY state (current state: SUBNET_STATE_PENDING)\\n\"",
+      "job_error": "job.log:3761: E2E test error",
       "pod_error": "",
-      "traceback": "junit.xml/test_baremetal_instance_lifecycle:1: subprocess.CalledProcessError in test_baremetal_instance_lifecycle\njunit.xml/test_baremetal_instance_restart:1: subprocess.CalledProcessError in test_baremetal_instance_restart"
+      "traceback": "junit.xml:1: JUnit test failure"
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:3761",
-      "junit.xml/test_baremetal_instance_lifecycle:1",
-      "junit.xml/test_baremetal_instance_restart:1"
-    ]
+      "junit.xml:1"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1211,
@@ -654,15 +645,16 @@
     "artifact": true,
     "state": {
       "failed_step": "Run E2E tests",
-      "job_error": "job.log:5273: E       TimeoutError: order-xg6n2 ClusterOrder deletion \u2014 timeout after 1190s, last value: False",
+      "job_error": "job.log:5273: E2E test error",
       "pod_error": "",
-      "traceback": "junit.xml/test_cluster_create:1: E       TimeoutError: order-xg6n2 ClusterOrder deletion \u2014 timeout after 1190s, last value: False"
+      "traceback": "junit.xml:1: JUnit test failure"
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:5273",
-      "junit.xml/test_cluster_create:1"
-    ]
+      "junit.xml:1"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 889,
@@ -675,16 +667,16 @@
     "artifact": true,
     "state": {
       "failed_step": "Run E2E tests",
-      "job_error": "job.log:3816: E       TimeoutError: metering event type=osac.resource.updated.v1 resource_id=[REDACTED_UUID] \u2014 timeout after 118s, last value: False\njob.log:4007: E       AssertionError: Missing host_type in billing_dimensions",
+      "job_error": "job.log:3816: E2E test error",
       "pod_error": "",
-      "traceback": "junit.xml/test_cluster_create:1: E       AssertionError: Missing host_type in billing_dimensions"
+      "traceback": "junit.xml:1: JUnit test failure"
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:3816",
-      "job.log:4007",
-      "junit.xml/test_cluster_create:1"
-    ]
+      "junit.xml:1"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1218,
@@ -697,15 +689,16 @@
     "artifact": true,
     "state": {
       "failed_step": "Run E2E tests",
-      "job_error": "job.log:4051: E       TimeoutError: metering event type=osac.resource.deleted.v1 resource_id=[REDACTED_UUID] \u2014 timeout after 58s, last value: False",
+      "job_error": "job.log:4051: E2E test error",
       "pod_error": "",
-      "traceback": "junit.xml/test_compute_instance_delete_during_provision:1: E       TimeoutError: metering event type=osac.resource.deleted.v1 resource_id=[REDACTED_UUID] \u2014 timeout after 58s, last value: False"
+      "traceback": "junit.xml:1: JUnit test failure"
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:4051",
-      "junit.xml/test_compute_instance_delete_during_provision:1"
-    ]
+      "junit.xml:1"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1262,
@@ -718,16 +711,16 @@
     "artifact": true,
     "state": {
       "failed_step": "Run E2E tests",
-      "job_error": "job.log:4069: E       TimeoutError: metering event type=osac.resource.deleted.v1 resource_id=[REDACTED_UUID] \u2014 timeout after 58s, last value: False\njob.log:4177: E       TimeoutError: metering event type=osac.resource.created.v1 resource_id=[REDACTED_UUID] \u2014 timeout after 58s, last value: False",
+      "job_error": "job.log:4069: E2E test error",
       "pod_error": "",
-      "traceback": "junit.xml/test_attach_detach_reattach:1: E       TimeoutError: metering event type=osac.resource.updated.v1 resource_id=[REDACTED_UUID] \u2014 timeout after 58s, last value: False"
+      "traceback": "junit.xml:1: JUnit test failure"
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:4069",
-      "job.log:4177",
-      "junit.xml/test_attach_detach_reattach:1"
-    ]
+      "junit.xml:1"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1247,
@@ -740,15 +733,16 @@
     "artifact": true,
     "state": {
       "failed_step": "Run E2E tests",
-      "job_error": "job.log:4079: E           AssertionError: ComputeInstance [REDACTED_UUID] still present in gRPC list after deletion",
+      "job_error": "job.log:4079: E2E test error",
       "pod_error": "",
-      "traceback": "junit.xml/test_compute_instance_restart:1: E           AssertionError: ComputeInstance [REDACTED_UUID] still present in gRPC list after deletion"
+      "traceback": "junit.xml:1: JUnit test failure"
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:4079",
-      "junit.xml/test_compute_instance_restart:1"
-    ]
+      "junit.xml:1"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 853,
@@ -761,15 +755,16 @@
     "artifact": true,
     "state": {
       "failed_step": "Run E2E tests",
-      "job_error": "job.log:3890: E       TimeoutError: externalip-grn6s ExternalIP deletion \u2014 timeout after 595s, last value: False",
+      "job_error": "job.log:3890: E2E test error",
       "pod_error": "",
-      "traceback": "junit.xml/test_validation_rejections:1: E       TimeoutError: duplicate-attachment ExternalIP settlement \u2014 timeout after 145s, last value: {'id': '[REDACTED_UUID]', 'metadata': {'creationTimestamp': '2026-09-27T11:14:29.221811Z', 'creator': '[REDACTE"
+      "traceback": "junit.xml:1: JUnit test failure"
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:3890",
-      "junit.xml/test_validation_rejections:1"
-    ]
+      "junit.xml:1"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 974,
@@ -782,15 +777,16 @@
     "artifact": true,
     "state": {
       "failed_step": "Run E2E tests",
-      "job_error": "job.log:4237: E       TimeoutError: metering event type=osac.resource.suspended.v1 resource_id=[REDACTED_UUID] \u2014 timeout after 118s, last value: False",
+      "job_error": "job.log:4237: E2E test error",
       "pod_error": "",
-      "traceback": "junit.xml/test_compute_instance_stop_metering:1: E       TimeoutError: metering event type=osac.resource.suspended.v1 resource_id=[REDACTED_UUID] \u2014 timeout after 118s, last value: False"
+      "traceback": "junit.xml:1: JUnit test failure"
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:4237",
-      "junit.xml/test_compute_instance_stop_metering:1"
-    ]
+      "junit.xml:1"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1249,
@@ -803,15 +799,16 @@
     "artifact": true,
     "state": {
       "failed_step": "Run E2E tests",
-      "job_error": "job.log:5212: E       TimeoutError: order-hrwxd ClusterOrder Ready \u2014 timeout after 7185s, last value: 'Failed'",
+      "job_error": "job.log:5212: E2E test error",
       "pod_error": "",
-      "traceback": "junit.xml/test_cluster_create:1: E       TimeoutError: order-hrwxd ClusterOrder Ready \u2014 timeout after 7185s, last value: 'Failed'"
+      "traceback": "junit.xml:1: JUnit test failure"
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:5212",
-      "junit.xml/test_cluster_create:1"
-    ]
+      "junit.xml:1"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1229,
@@ -826,12 +823,13 @@
       "failed_step": "Run E2E tests",
       "job_error": "",
       "pod_error": "",
-      "traceback": "junit.xml/test_virtual_network_lifecycle:1: | TimeoutError: subnet-s6hv5 Subnet deletion \u2014 timeout after 595s, last value: False"
+      "traceback": "junit.xml:1: JUnit test failure"
     },
     "evidence_available": true,
     "evidence_refs": [
-      "junit.xml/test_virtual_network_lifecycle:1"
-    ]
+      "junit.xml:1"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1064,
@@ -844,16 +842,16 @@
     "artifact": true,
     "state": {
       "failed_step": "Run E2E tests",
-      "job_error": "job.log:5468: E       TimeoutError: externalip-82h6g ExternalIP deletion \u2014 timeout after 595s, last value: False\njob.log:5574: E       AssertionError: Expected gRPC Unimplemented, got: Error invoking method \"osac.public.v1.VirtualNetworks/Update\": service \"osac.public.v1.VirtualNetworks\" does not include a method named \"Update\"",
+      "job_error": "job.log:5468: E2E test error",
       "pod_error": "",
-      "traceback": "junit.xml/test_public_networking_update_is_unimplemented[VirtualNetworks]:1: E       AssertionError: Expected gRPC Unimplemented, got: Error invoking method \"osac.public.v1.VirtualNetworks/Update\": service \"osac.public.v1.VirtualNetworks\" does not in"
+      "traceback": "junit.xml:1: JUnit test failure"
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:5468",
-      "job.log:5574",
-      "junit.xml/test_public_networking_update_is_unimplemented[VirtualNetworks]:1"
-    ]
+      "junit.xml:1"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1066,
@@ -866,15 +864,16 @@
     "artifact": true,
     "state": {
       "failed_step": "Run E2E tests",
-      "job_error": "job.log:5240: E       TimeoutError: metering event type=osac.resource.updated.v1 resource_id=[REDACTED_UUID] \u2014 timeout after 118s, last value: False",
+      "job_error": "job.log:5240: E2E test error",
       "pod_error": "",
-      "traceback": "junit.xml/test_cluster_create:1: E       TimeoutError: metering event type=osac.resource.updated.v1 resource_id=[REDACTED_UUID] \u2014 timeout after 118s, last value: False"
+      "traceback": "junit.xml:1: JUnit test failure"
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:5240",
-      "junit.xml/test_cluster_create:1"
-    ]
+      "junit.xml:1"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1269,
@@ -887,15 +886,15 @@
     "artifact": true,
     "state": {
       "failed_step": "Build and load component images",
-      "job_error": "job.log:801: module declares its path as: github.com/ovn-kubernetes/ovn-kubernetes/go-controller\njob.log:802: but was required as: github.com/ovn-org/ovn-kubernetes/go-controller",
+      "job_error": "job.log:801: Go module path mismatch",
       "pod_error": "",
       "traceback": ""
     },
     "evidence_available": true,
     "evidence_refs": [
-      "job.log:801",
-      "job.log:802"
-    ]
+      "job.log:801"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 865,
@@ -908,14 +907,15 @@
     "artifact": true,
     "state": {
       "failed_step": "Build and load component images",
-      "job_error": "job.log:823: internal/controllers/securitygroup/securitygroup_reconciler_function.go:425:16: undefined: fmt",
+      "job_error": "job.log:823: Go compiler undefined symbol",
       "pod_error": "",
       "traceback": ""
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:823"
-    ]
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 943,
@@ -928,15 +928,15 @@
     "artifact": true,
     "state": {
       "failed_step": "Build and load component images",
-      "job_error": "job.log:1922: ERROR: Cannot install -r /tmp/src/requirements.txt (line 2), -r /tmp/src/requirements.txt (line 6), botocore==1.43.56 and botocore>=1.31.0 because these package versions have conflicting dependencies.\njob.log:1934: ERROR: ResolutionImpossible: for help visit [REDACTED_URL]",
+      "job_error": "job.log:1922: Python dependency resolution failed",
       "pod_error": "",
       "traceback": ""
     },
     "evidence_available": true,
     "evidence_refs": [
-      "job.log:1922",
-      "job.log:1934"
-    ]
+      "job.log:1922"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1018,
@@ -949,15 +949,15 @@
     "artifact": true,
     "state": {
       "failed_step": "Build and load component images",
-      "job_error": "job.log:1930: ERROR: Cannot install -r /tmp/src/requirements.txt (line 44), -r /tmp/src/requirements.txt (line 50), -r /tmp/src/requirements.txt (line 62) and stevedore==5.7.0 because these package versions have conflicting dependencies.\njob.log:1942: ERROR: ResolutionImpossible: for help visit [REDACTED_URL]",
+      "job_error": "job.log:1930: Python dependency resolution failed",
       "pod_error": "",
       "traceback": ""
     },
     "evidence_available": true,
     "evidence_refs": [
-      "job.log:1930",
-      "job.log:1942"
-    ]
+      "job.log:1930"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1125,
@@ -970,15 +970,15 @@
     "artifact": true,
     "state": {
       "failed_step": "Build and load component images",
-      "job_error": "job.log:2690: ../../libs/ui-components/src/api/v1/baremetal-instance.ts(24,28): error TS2339: Property 'items' does not exist on type 'Message<string>'.\njob.log:2691: ../../libs/ui-components/src/api/v1/baremetal-instance.ts(34,28): error TS2339: Property 'object' does not exist on type 'Message<string>'.",
+      "job_error": "job.log:2690: TypeScript compiler error",
       "pod_error": "",
       "traceback": ""
     },
     "evidence_available": true,
     "evidence_refs": [
-      "job.log:2690",
-      "job.log:2691"
-    ]
+      "job.log:2690"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1126,
@@ -991,14 +991,15 @@
     "artifact": true,
     "state": {
       "failed_step": "Build and load component images",
-      "job_error": "job.log:2713: \"./lib/rfb.js\" is not exported under the conditions [\"module\", \"browser\", \"production\", \"import\"] from package /app/libs/ui-components/node_modules/@novnc/novnc (see exports field in /app/libs/ui-components/node_modules/@novnc/novnc/package.json)",
+      "job_error": "job.log:2713: Package export resolution failed",
       "pod_error": "",
       "traceback": ""
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:2713"
-    ]
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1093,
@@ -1011,14 +1012,15 @@
     "artifact": true,
     "state": {
       "failed_step": "Build and load component images",
-      "job_error": "job.log:3993: Error: context must be a directory: \"/home/github-runner/action-runners/runner-2/_work/_temp/component-7-src/osac-ui\"",
+      "job_error": "job.log:3993: Build context missing",
       "pod_error": "",
       "traceback": ""
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:3993"
-    ]
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1102,
@@ -1031,14 +1033,15 @@
     "artifact": false,
     "state": {
       "failed_step": "Build and load component images",
-      "job_error": "job.log:865: fatal: couldn't find remote ref remove-redundant-publish-charts-jobs",
+      "job_error": "job.log:865: Git ref unavailable",
       "pod_error": "",
       "traceback": ""
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:865"
-    ]
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 836,
@@ -1051,14 +1054,15 @@
     "artifact": true,
     "state": {
       "failed_step": "Build and load component images",
-      "job_error": "job.log:4090: Error: context must be a directory: \"/home/github-runner/action-runners/runner-4/_work/_temp/component-7-src/osac-ui\"",
+      "job_error": "job.log:4090: Build context missing",
       "pod_error": "",
       "traceback": ""
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:4090"
-    ]
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1166,
@@ -1071,8 +1075,8 @@
     "artifact": true,
     "state": {
       "failed_step": "Install OSAC",
-      "job_error": "job.log:3461: Error: context deadline exceeded",
-      "pod_error": "pod-fulfillment-grpc-server-578695d799-mz5b8-grpc-server-previous.log:13: failed to init driver with path migrations: duplicate migration file: 117_remove_network_class_is_default.up.sql\nevents.txt:165: 39m         Warning   FailedMount             pod/fulfillment-event-publisher-7796998f76-nfbd2           MountVolume.SetUp failed for volume \"kafka\" : references non-existent secret key: brokers",
+      "job_error": "job.log:3461: Install timed out",
+      "pod_error": "pod-fulfillment-grpc-server-578695d799-mz5b8-grpc-server-previous.log:13: gRPC startup failed: duplicate migration file\nevents.txt:165: Kubernetes FailedMount: non-existent secret key",
       "traceback": ""
     },
     "evidence_available": true,
@@ -1080,7 +1084,8 @@
       "job.log:3461",
       "pod-fulfillment-grpc-server-578695d799-mz5b8-grpc-server-previous.log:13",
       "events.txt:165"
-    ]
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1157,
@@ -1093,17 +1098,16 @@
     "artifact": true,
     "state": {
       "failed_step": "Install OSAC",
-      "job_error": "job.log:4881: Error: failed post-install: 1 error occurred:\njob.log:4882: * timed out waiting for the condition",
-      "pod_error": "pod-osac-aap-bootstrap-5pz2v-bootstrap.log:221: [ERROR]: Task failed: Module failed: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\npod-osac-aap-bootstrap-5pz2v-bootstrap.log:229: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}",
+      "job_error": "job.log:4881: Install timed out",
+      "pod_error": "pod-osac-aap-bootstrap-5pz2v-bootstrap.log:221: AAP instance_group rejected pod_spec_override policy",
       "traceback": ""
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:4881",
-      "job.log:4882",
-      "pod-osac-aap-bootstrap-5pz2v-bootstrap.log:221",
-      "pod-osac-aap-bootstrap-5pz2v-bootstrap.log:229"
-    ]
+      "pod-osac-aap-bootstrap-5pz2v-bootstrap.log:221"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1092,
@@ -1116,17 +1120,16 @@
     "artifact": true,
     "state": {
       "failed_step": "Install OSAC",
-      "job_error": "job.log:3398: Error: failed post-install: 1 error occurred:\njob.log:3399: * timed out waiting for the condition",
-      "pod_error": "pod-osac-aap-bootstrap-58kwl-bootstrap.log:221: [ERROR]: Task failed: Module failed: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\npod-osac-aap-bootstrap-58kwl-bootstrap.log:229: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}",
+      "job_error": "job.log:3398: Install timed out",
+      "pod_error": "pod-osac-aap-bootstrap-58kwl-bootstrap.log:221: AAP instance_group rejected pod_spec_override policy",
       "traceback": ""
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:3398",
-      "job.log:3399",
-      "pod-osac-aap-bootstrap-58kwl-bootstrap.log:221",
-      "pod-osac-aap-bootstrap-58kwl-bootstrap.log:229"
-    ]
+      "pod-osac-aap-bootstrap-58kwl-bootstrap.log:221"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1227,
@@ -1139,17 +1142,16 @@
     "artifact": true,
     "state": {
       "failed_step": "Install OSAC",
-      "job_error": "job.log:4643: Error: failed post-install: 1 error occurred:\njob.log:4644: * timed out waiting for the condition",
-      "pod_error": "pod-osac-aap-bootstrap-9htzw-bootstrap.log:221: [ERROR]: Task failed: Module failed: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\npod-osac-aap-bootstrap-9htzw-bootstrap.log:229: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}",
+      "job_error": "job.log:4643: Install timed out",
+      "pod_error": "pod-osac-aap-bootstrap-9htzw-bootstrap.log:221: AAP instance_group rejected pod_spec_override policy",
       "traceback": ""
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:4643",
-      "job.log:4644",
-      "pod-osac-aap-bootstrap-9htzw-bootstrap.log:221",
-      "pod-osac-aap-bootstrap-9htzw-bootstrap.log:229"
-    ]
+      "pod-osac-aap-bootstrap-9htzw-bootstrap.log:221"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1169,
@@ -1162,17 +1164,16 @@
     "artifact": true,
     "state": {
       "failed_step": "Install OSAC",
-      "job_error": "job.log:4885: Error: failed post-install: 1 error occurred:\njob.log:4886: * timed out waiting for the condition",
-      "pod_error": "pod-osac-aap-bootstrap-2frlq-bootstrap.log:221: [ERROR]: Task failed: Module failed: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\npod-osac-aap-bootstrap-2frlq-bootstrap.log:229: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}",
+      "job_error": "job.log:4885: Install timed out",
+      "pod_error": "pod-osac-aap-bootstrap-2frlq-bootstrap.log:221: AAP instance_group rejected pod_spec_override policy",
       "traceback": ""
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:4885",
-      "job.log:4886",
-      "pod-osac-aap-bootstrap-2frlq-bootstrap.log:221",
-      "pod-osac-aap-bootstrap-2frlq-bootstrap.log:229"
-    ]
+      "pod-osac-aap-bootstrap-2frlq-bootstrap.log:221"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1176,
@@ -1185,17 +1186,16 @@
     "artifact": true,
     "state": {
       "failed_step": "Install OSAC",
-      "job_error": "job.log:4756: Error: failed post-install: 1 error occurred:\njob.log:4757: * timed out waiting for the condition",
-      "pod_error": "pod-osac-aap-bootstrap-5k5sq-bootstrap.log:221: [ERROR]: Task failed: Module failed: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}\npod-osac-aap-bootstrap-5k5sq-bootstrap.log:229: Unable to create instance_group osac-cluster-fulfillment-ig: {'pod_spec_override': ['Mounting Kubernetes secrets via pod_spec_override is not allowed for security reasons']}",
+      "job_error": "job.log:4756: Install timed out",
+      "pod_error": "pod-osac-aap-bootstrap-5k5sq-bootstrap.log:221: AAP instance_group rejected pod_spec_override policy",
       "traceback": ""
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:4756",
-      "job.log:4757",
-      "pod-osac-aap-bootstrap-5k5sq-bootstrap.log:221",
-      "pod-osac-aap-bootstrap-5k5sq-bootstrap.log:229"
-    ]
+      "pod-osac-aap-bootstrap-5k5sq-bootstrap.log:221"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1240,
@@ -1208,16 +1208,17 @@
     "artifact": true,
     "state": {
       "failed_step": "Install OSAC",
-      "job_error": "job.log:3464: Error: context deadline exceeded",
-      "pod_error": "events.txt:209: 39m         Warning   FailedMount             pod/fulfillment-grpc-server-7d4bd7cc8f-g9l7d               MountVolume.SetUp failed for volume \"kafka\" : references non-existent secret key: brokers\nevents.txt:217: 39m         Warning   FailedMount             pod/fulfillment-event-publisher-8cd4c88-5llmp              MountVolume.SetUp failed for volume \"kafka\" : references non-existent secret key: brokers",
+      "job_error": "job.log:3464: Install timed out",
+      "pod_error": "events.txt:209: Kubernetes FailedMount: non-existent secret key\npod-fulfillment-controller-598f7f978-wlz7p-controller-previous.log:26: Controller token form failed: unsupported protocol scheme",
       "traceback": ""
     },
     "evidence_available": true,
     "evidence_refs": [
       "job.log:3464",
       "events.txt:209",
-      "events.txt:217"
-    ]
+      "pod-fulfillment-controller-598f7f978-wlz7p-controller-previous.log:26"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1233,
@@ -1229,15 +1230,16 @@
     "label_basis": "Install infrastructure operators step ended in post-install timeout; artifact has no direct upstream cause, so abstain on cause",
     "artifact": true,
     "state": {
-      "failed_step": "Install infrastructure operators",
-      "job_error": "job.log:4676: Error: failed post-install: 1 error occurred:",
+      "failed_step": "Install OSAC",
+      "job_error": "job.log:4676: Install timed out",
       "pod_error": "",
       "traceback": ""
     },
     "evidence_available": false,
     "evidence_refs": [
       "job.log:4676"
-    ]
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1140,
@@ -1250,15 +1252,15 @@
     "artifact": false,
     "state": {
       "failed_step": "Authorize fork PR",
-      "job_error": "job.log:391: ##[error]Fork PR blocked: 'jeff-phillips-18' is not an osac-project org member.\njob.log:392: ##[error]An org member can approve this PR for testing by commenting /ok-to-test",
+      "job_error": "job.log:391: Fork PR blocked; /ok-to-test required",
       "pod_error": "",
       "traceback": ""
     },
     "evidence_available": true,
     "evidence_refs": [
-      "job.log:391",
-      "job.log:392"
-    ]
+      "job.log:391"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   },
   {
     "pr": 1225,
@@ -1271,14 +1273,14 @@
     "artifact": false,
     "state": {
       "failed_step": "Authorize fork PR",
-      "job_error": "job.log:391: ##[error]Fork PR blocked: 'jeff-phillips-18' is not an osac-project org member.\njob.log:392: ##[error]An org member can approve this PR for testing by commenting /ok-to-test",
+      "job_error": "job.log:391: Fork PR blocked; /ok-to-test required",
       "pod_error": "",
       "traceback": ""
     },
     "evidence_available": true,
     "evidence_refs": [
-      "job.log:391",
-      "job.log:392"
-    ]
+      "job.log:391"
+    ],
+    "extractor_version": "osac-laya-evidence-v1"
   }
 ]

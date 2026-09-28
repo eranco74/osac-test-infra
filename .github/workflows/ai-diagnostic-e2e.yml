@@ -514,8 +514,8 @@ jobs:
         run: python3 .github/scripts/laya-shadow.py
 
       # Persist the observation even when Vertex authentication or diagnosis
-      # later fails. The helper writes only bounded, redacted excerpts and
-      # run identifiers; upload never consumes the raw job log or ZIP.
+      # later fails. The helper writes only fixed failure descriptions,
+      # source references, and run identifiers; upload never consumes raw logs.
       - name: Upload Laya shadow observation
         if: always()
         continue-on-error: true

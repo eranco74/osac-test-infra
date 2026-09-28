@@ -11,16 +11,20 @@ import json
 import math
 import os
 import re
+import signal
 import time
 import urllib.error
 import urllib.request
 import xml.etree.ElementTree as ET
-from contextlib import suppress
+from collections.abc import Iterator
+from contextlib import contextmanager, suppress
 from pathlib import Path
+from types import FrameType
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[2]
 SCHEMA = json.loads((ROOT / "analysis/laya/schema.json").read_text())
+EXTRACTOR_VERSION = "osac-laya-evidence-v1"
 DEFAULT_ENDPOINT = "https://laya-server-laya.apps.cnv2.engineering.redhat.com/predict"
 MAX_SOURCE_BYTES = 2 * 1024 * 1024
 MAX_ARTIFACT_BYTES = 8 * 1024 * 1024
@@ -28,32 +32,17 @@ MAX_ARTIFACT_FILES = 300
 FIELD_LIMITS = {"failed_step": 80, "job_error": 350, "pod_error": 500, "traceback": 250}
 ANSI = re.compile(r"\x1b\[[0-9;]*[A-Za-z]")
 TIMESTAMP = re.compile(r"^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d(?:\.\d+)?Z\s*")
-SENSITIVE = (
-    (re.compile(r"(?i)Bearer\s+[^\s\"']+"), "Bearer [REDACTED]"),
-    (re.compile(r"\b(?:gh[pousr]_[A-Za-z0-9_]{12,}|github_pat_[A-Za-z0-9_]{12,})\b"), "[REDACTED_TOKEN]"),
-    (
-        re.compile(
-            r"(?i)\b(?:password|client_secret|api[_-]?key|access[_-]?token|refresh[_-]?token)\s*[:=]\s*[^\s,\"']+"
-        ),
-        "[REDACTED_SECRET]",
-    ),
-    (
-        re.compile(
-            r"(?i)[\"']?(?:password|client_secret|api[_-]?key|access[_-]?token|refresh[_-]?token)[\"']?\s*:\s*[\"'][^\"']+[\"']"
-        ),
-        "[REDACTED_SECRET]",
-    ),
-    (re.compile(r"(?i)https?://[^\s/@]+:[^\s/@]+@[^\s\"']+"), "[REDACTED_URL]"),
-    (re.compile(r"https?://[^\s\"']+"), "[REDACTED_URL]"),
-    (re.compile(r"\b(?:\d{1,3}\.){3}\d{1,3}\b"), "[REDACTED_IP]"),
-    (re.compile(r"\b[0-9a-f]{8}-[0-9a-f-]{20,}\b", re.I), "[REDACTED_UUID]"),
-    (re.compile(r"ssh-ed25519\s+[A-Za-z0-9+/=]+"), "ssh-ed25519 [REDACTED_KEY]"),
-)
-BUILD_SIGNAL = re.compile(
-    r"go: module |module declares its path|but was required as|undefined: |error TS\d+|"
-    r"ERROR: Cannot install|ResolutionImpossible|not exported under the conditions|"
-    r"context must be a directory|fatal: couldn.t find remote ref|could not be found on container",
-    re.I,
+POD_LOG = re.compile(r"pod-(?:osac-aap-bootstrap|fulfillment-grpc-server|fulfillment-controller)-[a-z0-9-]+\.log")
+AAP_FAILED = re.compile(r"project-update-\d+-failed\.txt")
+BUILD_SIGNALS = (
+    (re.compile(r"module declares its path|but was required as", re.I), 90, "Go module path mismatch"),
+    (re.compile(r"go: module ", re.I), 90, "Go module dependency resolution failed"),
+    (re.compile(r"error TS\d+", re.I), 90, "TypeScript compiler error"),
+    (re.compile(r"undefined: ", re.I), 90, "Go compiler undefined symbol"),
+    (re.compile(r"ERROR: Cannot install|ResolutionImpossible", re.I), 90, "Python dependency resolution failed"),
+    (re.compile(r"not exported under the conditions", re.I), 90, "Package export resolution failed"),
+    (re.compile(r"context must be a directory|could not be found on container", re.I), 90, "Build context missing"),
+    (re.compile(r"fatal: couldn.t find remote ref", re.I), 90, "Git ref unavailable"),
 )
 TEST_SIGNAL = re.compile(
     r"\bE\s+(?:AssertionError|TimeoutError|ValueError|ExceptionGroup)|"
@@ -65,14 +54,22 @@ INSTALL_TIMEOUT = re.compile(
 )
 
 
-def redact(value: str) -> str:
-    """Remove credential-shaped content before it can enter state or JSON."""
-    if "PRIVATE KEY-----" in value:
-        return "[REDACTED_PRIVATE_KEY]"
-    text = TIMESTAMP.sub("", ANSI.sub("", value.strip()))
-    for pattern, replacement in SENSITIVE:
-        text = pattern.sub(replacement, text)
-    return text
+def classify_stage(step: str) -> str:
+    if "Run E2E" in step:
+        return "e2e"
+    if "Authorize" in step:
+        return "ci"
+    if "Build" in step:
+        return "build"
+    return "install"
+
+
+def artifact_member_relevant(name: str) -> bool:
+    """Allow only files whose paths and names are known to this extractor."""
+    parts = Path(name).parts
+    if len(parts) == 1:
+        return parts[0] in {"junit.xml", "events.txt", "pods-describe.txt"} or POD_LOG.fullmatch(parts[0]) is not None
+    return len(parts) == 2 and parts[0] == "aap-jobs" and AAP_FAILED.fullmatch(parts[1]) is not None
 
 
 def _safe_file(path: Path, root: Path | None = None) -> bool:
@@ -96,9 +93,8 @@ def _read_lines(path: Path, root: Path | None = None) -> list[str]:
 
 
 def _add(candidates: list[tuple[int, str, str]], priority: int, source: str, line_number: int, message: str) -> None:
-    clean = redact(message)
-    if clean:
-        candidates.append((priority, f"{source}:{line_number}", clean[:300]))
+    # Callers pass fixed descriptions only. Never retain raw log text here.
+    candidates.append((priority, f"{source}:{line_number}", message))
 
 
 def _format(candidates: list[tuple[int, str, str]], limit: int, count: int = 2) -> tuple[str, list[str], bool]:
@@ -126,15 +122,17 @@ def _job_candidates(path: Path, stage: str) -> list[tuple[int, str, str]]:
     candidates: list[tuple[int, str, str]] = []
     for number, line in enumerate(_read_lines(path), 1):
         line = TIMESTAMP.sub("", ANSI.sub("", line))
-        if stage == "build" and BUILD_SIGNAL.search(line):
-            priority = 90 if not re.search(r"ResolutionImpossible", line) else 50
-            _add(candidates, priority, "job.log", number, line)
+        if stage == "build":
+            for pattern, priority, description in BUILD_SIGNALS:
+                if pattern.search(line):
+                    _add(candidates, priority, "job.log", number, description)
+                    break
         elif stage == "ci" and line.startswith("##[error]") and ("Fork PR blocked:" in line or "/ok-to-test" in line):
-            _add(candidates, 95, "job.log", number, line)
+            _add(candidates, 95, "job.log", number, "Fork PR blocked; /ok-to-test required")
         elif stage == "e2e" and TEST_SIGNAL.search(line):
-            _add(candidates, 90, "job.log", number, line)
+            _add(candidates, 90, "job.log", number, "E2E test error")
         elif stage == "install" and INSTALL_TIMEOUT.search(line):
-            _add(candidates, 20, "job.log", number, line)
+            _add(candidates, 20, "job.log", number, "Install timed out")
     return candidates
 
 
@@ -152,33 +150,10 @@ def _junit_candidates(path: Path, root: Path) -> list[tuple[int, str, str]]:
             failure = testcase.find("error")
         if failure is None:
             continue
-        name = re.sub(r"[^A-Za-z0-9_.\[\]-]", "_", testcase.get("name", "unknown"))[:90]
-        text = failure.text or ""
-        errors = [
-            line.strip() for line in text.splitlines() if re.search(r"^\s*(?:E\s+|\|\s+).*(?:Error:|Exception:)", line)
-        ]
-        message = errors[-1] if errors else (failure.get("message") or "")
-        if "subprocess.CalledProcessError: Command" in message:
-            message = "subprocess.CalledProcessError in " + name
-        _add(candidates, 80, f"junit.xml/{name}", 1, message)
+        _add(candidates, 80, "junit.xml", 1, "JUnit test failure")
         if len(candidates) >= 5:
             break
     return candidates
-
-
-def _pod_message(line: str) -> str:
-    """Keep the message, not a JSON log's stack, request, or event payload."""
-    if "FAILED! =>" in line:
-        line = line.split("FAILED! =>", 1)[1].strip()
-    if line.lstrip().startswith("{"):
-        try:
-            obj = json.loads(line)
-            error = obj.get("error") or {}
-            detail = error.get("message", "") if isinstance(error, dict) else ""
-            return f"{obj.get('msg', '')}: {detail}".strip(": ")
-        except (ValueError, TypeError, AttributeError):
-            pass
-    return line
 
 
 def _artifact_candidates(root: Path) -> list[tuple[int, str, str]]:
@@ -190,38 +165,36 @@ def _artifact_candidates(root: Path) -> list[tuple[int, str, str]]:
         return []
     candidates: list[tuple[int, str, str]] = []
     consumed = 0
-    relevant = [
-        path
-        for path in paths
-        if path.name in ("events.txt", "pods-describe.txt")
-        or (path.name.startswith("pod-osac-aap-bootstrap-") and path.name.endswith(".log"))
-        or (path.name.startswith("pod-fulfillment-grpc-server-") and path.name.endswith(".log"))
-        or (path.name.startswith("pod-fulfillment-controller-") and path.name.endswith(".log"))
-    ]
+    relevant = [path for path in paths if path.name != "junit.xml" and artifact_member_relevant(path.name)]
     for path in relevant[:MAX_ARTIFACT_FILES]:
         name = path.name
         if not _safe_file(path, root) or consumed + path.stat().st_size > MAX_ARTIFACT_BYTES:
             continue
         consumed += path.stat().st_size
         for number, line in enumerate(_read_lines(path, root), 1):
-            if (
-                "Unable to create instance_group" in line and "pod_spec_override" in line
-            ) or "duplicate migration file" in line:
-                _add(candidates, 100, name, number, _pod_message(line))
+            if "Unable to create instance_group" in line and "pod_spec_override" in line:
+                _add(candidates, 100, name, number, "AAP instance_group rejected pod_spec_override policy")
+            elif "duplicate migration file" in line:
+                _add(candidates, 100, name, number, "gRPC startup failed: duplicate migration file")
             elif "Failed to send token form" in line and "unsupported protocol scheme" in line:
-                _add(candidates, 95, name, number, _pod_message(line))
+                _add(candidates, 95, name, number, "Controller token form failed: unsupported protocol scheme")
             elif name == "events.txt" and (
                 ("FailedCreate" in line and "job/osac-copy-fulfillment-kafka" in line)
                 or ("FailedMount" in line and "references non-existent secret key" in line)
             ):
-                _add(candidates, 95, name, number, line)
+                description = (
+                    "Kubernetes FailedCreate for Kafka copy job"
+                    if "FailedCreate" in line
+                    else "Kubernetes FailedMount: non-existent secret key"
+                )
+                _add(candidates, 95, name, number, description)
     aap_dir = root / "aap-jobs"
     if aap_dir.is_dir() and not aap_dir.is_symlink():
         try:
             aap_paths = sorted(aap_dir.iterdir())
         except OSError:
             aap_paths = []
-        aap_paths = [path for path in aap_paths if re.fullmatch(r"project-update-\d+-failed\.txt", path.name)]
+        aap_paths = [path for path in aap_paths if artifact_member_relevant(f"aap-jobs/{path.name}")]
         for path in aap_paths[:MAX_ARTIFACT_FILES]:
             if not _safe_file(path, root) or consumed + path.stat().st_size > MAX_ARTIFACT_BYTES:
                 continue
@@ -229,27 +202,21 @@ def _artifact_candidates(root: Path) -> list[tuple[int, str, str]]:
             for number, line in enumerate(_read_lines(path, root), 1):
                 if "Failed to checkout" not in line and "unable to read tree" not in line:
                     continue
-                if "FAILED! =>" in line:
-                    try:
-                        item = json.loads(line.split("FAILED! =>", 1)[1])
-                        line = f"{item.get('msg', '')}; {item.get('stderr', '')}"
-                    except (ValueError, TypeError, AttributeError):
-                        pass
-                _add(candidates, 95, f"aap-jobs/{path.name}", number, line)
+                _add(
+                    candidates, 95, f"aap-jobs/{path.name}", number, "AAP project update could not checkout Git source"
+                )
     return candidates
 
 
 def extract_state(artifact_dir: Path, junit_path: Path, job_log_path: Path, failed_step: str) -> dict[str, Any]:
-    """Select direct evidence using one bounded schema for replay and CI."""
-    step = redact(failed_step)[: FIELD_LIMITS["failed_step"]]
-    if "Run E2E" in step:
-        stage = "e2e"
-    elif "Authorize" in step:
-        stage = "ci"
-    elif "Build" in step:
-        stage = "build"
-    else:
-        stage = "install"
+    """Select fixed diagnostic descriptions; never retain raw log content."""
+    stage = classify_stage(failed_step)
+    step = {
+        "e2e": "Run E2E tests",
+        "ci": "Authorize fork PR",
+        "build": "Build and load component images",
+        "install": "Install OSAC",
+    }[stage]
     job, job_refs, job_direct = _format(_job_candidates(job_log_path, stage), FIELD_LIMITS["job_error"])
     pod_candidates = _artifact_candidates(artifact_dir) if stage == "install" else []
     pod, pod_refs, pod_direct = _format(pod_candidates, FIELD_LIMITS["pod_error"])
@@ -288,11 +255,29 @@ def _parse_answer(response: dict[str, Any], stage: str) -> tuple[str, float, flo
     return choice, score, runner_up, model, tokens
 
 
+def _deadline_handler(_signal: int, _frame: FrameType | None) -> None:
+    raise TimeoutError("Laya request exceeded total deadline")
+
+
+@contextmanager
+def _total_deadline(seconds: float) -> Iterator[None]:
+    old_handler = signal.signal(signal.SIGALRM, _deadline_handler)
+    old_timer = signal.setitimer(signal.ITIMER_REAL, seconds)
+    try:
+        yield
+    finally:
+        signal.setitimer(signal.ITIMER_REAL, 0)
+        signal.signal(signal.SIGALRM, old_handler)
+        if old_timer[0] > 0:
+            signal.setitimer(signal.ITIMER_REAL, *old_timer)
+
+
 def shadow_classify(evidence: dict[str, Any], endpoint: str = DEFAULT_ENDPOINT, timeout: float = 5.0) -> dict[str, Any]:
     """Return metadata only; every service failure becomes an abstention."""
     stage = evidence["stage"]
     result = {
         "schema_version": SCHEMA["version"],
+        "extractor_version": EXTRACTOR_VERSION,
         "mode": "shadow",
         "method": "failed_step" if stage in SCHEMA["direct_step_routes"] else "laya",
         "route": "unknown",
@@ -314,8 +299,11 @@ def shadow_classify(evidence: dict[str, Any], endpoint: str = DEFAULT_ENDPOINT, 
     )
     started = time.monotonic()
     try:
-        with urllib.request.urlopen(request, timeout=timeout) as response:
-            body = json.load(response)
+        with _total_deadline(timeout), urllib.request.urlopen(request, timeout=timeout) as response:
+            data = response.read(65537)
+        if len(data) > 65536:
+            raise ValueError("oversized Laya response")
+        body = json.loads(data)
         route, score, runner_up, model, tokens = _parse_answer(body, stage)
         result.update(route=route, score=score, runner_up_score=runner_up, model=model, input_tokens=tokens)
     except (OSError, ValueError, KeyError, TypeError, urllib.error.URLError) as exc:
@@ -326,25 +314,24 @@ def shadow_classify(evidence: dict[str, Any], endpoint: str = DEFAULT_ENDPOINT, 
 
 
 def main() -> None:
-    artifact_dir = Path(os.environ.get("ARTIFACT_DIR") or "/nonexistent")
-    evidence = extract_state(
-        artifact_dir,
-        Path(os.environ.get("JUNIT_PATH") or "/nonexistent"),
-        Path(os.environ.get("JOB_LOG_PATH") or "/nonexistent"),
-        os.environ.get("FAILED_STEP_NAME", ""),
-    )
     enabled = os.environ.get("LAYA_SHADOW_ENABLED", "true").lower() in {"true", "1", "yes"}
     if enabled:
+        artifact_dir = Path(os.environ.get("ARTIFACT_DIR") or "/nonexistent")
+        evidence = extract_state(
+            artifact_dir,
+            Path(os.environ.get("JUNIT_PATH") or "/nonexistent"),
+            Path(os.environ.get("JOB_LOG_PATH") or "/nonexistent"),
+            os.environ.get("FAILED_STEP_NAME", ""),
+        )
         result = shadow_classify(evidence, os.environ.get("LAYA_ENDPOINT") or DEFAULT_ENDPOINT)
     else:
         result = {
             "schema_version": SCHEMA["version"],
+            "extractor_version": EXTRACTOR_VERSION,
             "mode": "disabled",
             "method": "disabled",
             "route": "unknown",
-            "evidence_available": evidence["evidence_available"],
-            "evidence_refs": evidence["evidence_refs"],
-            "state": evidence["state"],
+            "evidence_available": False,
         }
     result["run"] = {
         "id": os.environ.get("FAILED_RUN_ID", ""),

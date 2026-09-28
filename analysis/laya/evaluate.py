@@ -13,14 +13,13 @@ from collections import Counter
 from pathlib import Path
 from typing import Any
 
+from reextract import load_extractor
+
 DEFAULT_ENDPOINT = "https://laya-server-laya.apps.cnv2.engineering.redhat.com/predict/batch"
 SCHEMA = json.loads(Path(__file__).with_name("schema.json").read_text())
+CLASSIFY_STAGE = load_extractor(Path(__file__).resolve().parents[2]).classify_stage
 CRITERIA = SCHEMA["questions"]["global"]["failure_domain"]["criteria"]
 GLOBAL_QUESTION = SCHEMA["questions"]["global"]
-
-
-def stage_question(stage: str) -> dict[str, Any]:
-    return SCHEMA["questions"][stage]
 
 
 def compact_state(state: dict[str, str]) -> dict[str, str]:
@@ -37,16 +36,6 @@ def state_for_arm(state: dict[str, str], arm: str) -> dict[str, str]:
     if arm == "compact":
         return compact_state(state)
     return state
-
-
-def classify_stage(step: str) -> str:
-    if "Run E2E" in step:
-        return "e2e"
-    if "Authorize" in step:
-        return "ci"
-    if "Build" in step:
-        return "build"
-    return "install"
 
 
 def predict_batch(
@@ -69,7 +58,7 @@ def predict_batch(
 def evaluate(cases: list[dict[str, Any]], arm: str, endpoint: str) -> dict[str, Any]:
     groups: dict[str, list[tuple[dict[str, Any], dict[str, str]]]] = {}
     for case in cases:
-        stage = classify_stage(case["state"]["failed_step"]) if arm == "stage" else "global"
+        stage = CLASSIFY_STAGE(case["state"]["failed_step"]) if arm == "stage" else "global"
         groups.setdefault(stage, []).append((case, state_for_arm(case["state"], arm)))
 
     predictions: list[dict[str, Any]] = []
@@ -82,7 +71,7 @@ def evaluate(cases: list[dict[str, Any]], arm: str, endpoint: str) -> dict[str, 
                 for case, _ in items
             )
             continue
-        question = stage_question(stage) if arm == "stage" else GLOBAL_QUESTION
+        question = SCHEMA["questions"][stage] if arm == "stage" else GLOBAL_QUESTION
         for offset in range(0, len(items), 5):
             batch = items[offset : offset + 5]
             elapsed, results = predict_batch(batch, question, endpoint)
@@ -100,7 +89,16 @@ def evaluate(cases: list[dict[str, Any]], arm: str, endpoint: str) -> dict[str, 
                     }
                 )
             print(f"{stage}: {offset + len(batch)}/{len(items)} in {elapsed:.2f}s", flush=True)
-    return {"arm": arm, "schema_version": SCHEMA["version"], "predictions": predictions, "batches": batches}
+    versions = {case.get("extractor_version") for case in cases}
+    if len(versions) != 1 or None in versions:
+        raise ValueError("Cases must share one extractor version")
+    return {
+        "arm": arm,
+        "schema_version": SCHEMA["version"],
+        "extractor_version": versions.pop(),
+        "predictions": predictions,
+        "batches": batches,
+    }
 
 
 def summarize(cases: list[dict[str, Any]], result: dict[str, Any]) -> str:
