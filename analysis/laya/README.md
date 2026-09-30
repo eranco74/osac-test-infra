@@ -71,6 +71,18 @@ to another compatible Laya server. The requests contain canonical diagnostic
 signals, so use only an approved server. Re-running may change predictions if
 the server checkpoint changes; the committed report records the observed run.
 
+## Workflow deployment
+
+The diagnostic job runs on GitHub-hosted `ubuntu-latest`. The Laya endpoint
+used for the local replay is on a private network, and reachability from that
+runner has not been demonstrated. The workflow therefore defaults shadow
+capture to disabled. Set both `OSAC_LAYA_SHADOW_ENABLED=true` and
+`OSAC_LAYA_ENDPOINT` to an approved endpoint reachable from the diagnostic
+runner only after a connectivity check from that runner succeeds. A disabled
+observation records `feature_disabled` or `endpoint_not_configured`; it is not
+a Laya classification or a live evaluation sample. A failed Laya request still
+abstains and leaves Vertex unchanged.
+
 ## Gate under evaluation
 
 No score-only bypass is allowed. A candidate templated response requires an

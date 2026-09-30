@@ -492,10 +492,11 @@ jobs:
           fi
 
       # OSAC-5641: record a bounded first-pass route without changing the
-      # Vertex diagnosis, sticky comment, status, or E2E gate. A repository
-      # variable set to "false" disables it; the endpoint can be overridden
-      # for testing. Service errors are recorded as abstentions, and this
-      # step is supplementary even if the helper itself fails.
+      # Vertex diagnosis, sticky comment, status, or E2E gate. This job runs
+      # on ubuntu-latest, which has no demonstrated route to the private Laya
+      # endpoint. Require explicit enablement and a reachable endpoint before
+      # making a request. Service errors are recorded as abstentions, and
+      # this step is supplementary even if the helper itself fails.
       - name: Record Laya shadow route
         continue-on-error: true
         env:
@@ -503,8 +504,8 @@ jobs:
           JUNIT_PATH: ${{ steps.artifact.outputs.dir }}/junit.xml
           JOB_LOG_PATH: ${{ steps.job-log.outputs.path }}
           FAILED_STEP_NAME: ${{ steps.job-log.outputs.step-name }}
-          LAYA_SHADOW_ENABLED: ${{ vars.OSAC_LAYA_SHADOW_ENABLED || 'true' }}
-          LAYA_ENDPOINT: ${{ vars.OSAC_LAYA_ENDPOINT || 'https://laya-server-laya.apps.cnv2.engineering.redhat.com/predict' }}
+          LAYA_SHADOW_ENABLED: ${{ vars.OSAC_LAYA_SHADOW_ENABLED || 'false' }}
+          LAYA_ENDPOINT: ${{ vars.OSAC_LAYA_ENDPOINT || '' }}
           LAYA_SHADOW_FILE: ${{ runner.temp }}/laya-shadow.json
           FAILED_RUN_ID: ${{ github.event.workflow_run.id }}
           FAILED_RUN_URL: ${{ github.event.workflow_run.html_url }}

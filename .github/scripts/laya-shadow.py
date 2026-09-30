@@ -314,7 +314,9 @@ def shadow_classify(evidence: dict[str, Any], endpoint: str = DEFAULT_ENDPOINT, 
 
 
 def main() -> None:
-    enabled = os.environ.get("LAYA_SHADOW_ENABLED", "true").lower() in {"true", "1", "yes"}
+    requested = os.environ.get("LAYA_SHADOW_ENABLED", "false").lower() in {"true", "1", "yes"}
+    endpoint = os.environ.get("LAYA_ENDPOINT", "").strip()
+    enabled = requested and bool(endpoint)
     if enabled:
         artifact_dir = Path(os.environ.get("ARTIFACT_DIR") or "/nonexistent")
         evidence = extract_state(
@@ -323,7 +325,7 @@ def main() -> None:
             Path(os.environ.get("JOB_LOG_PATH") or "/nonexistent"),
             os.environ.get("FAILED_STEP_NAME", ""),
         )
-        result = shadow_classify(evidence, os.environ.get("LAYA_ENDPOINT") or DEFAULT_ENDPOINT)
+        result = shadow_classify(evidence, endpoint)
     else:
         result = {
             "schema_version": SCHEMA["version"],
@@ -331,6 +333,7 @@ def main() -> None:
             "mode": "disabled",
             "method": "disabled",
             "route": "unknown",
+            "reason": "feature_disabled" if not requested else "endpoint_not_configured",
             "evidence_available": False,
         }
     result["run"] = {
